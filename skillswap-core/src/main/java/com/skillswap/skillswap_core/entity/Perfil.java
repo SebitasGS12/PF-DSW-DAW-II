@@ -19,7 +19,7 @@ public class Perfil {
     
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int perfilID;
+    private Integer perfilID;
 
     private String nombre;
     private String apellido;

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "skillswap-core/src/main/java/com/skillswap/skillswap_core/entity/Mensajes.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1717041577097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717042207460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n @Data\r\n public class Mensajes {\r\n     @Id\r\n     @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n-    private int mensajeId;\r\n+    private Integer mensajeId;\r\n     private String contenido;\r\n     private Date fechaEnvio;\r\n \r\n     @ManyToOne\r\n"
+                }
+            ],
+            "date": 1717041577097,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.Data;\r\n\r\nimport java.util.Date;\r\n\r\n@Entity\r\n@Table(name = \"mensaje\")\r\n@Data\r\npublic class Mensajes {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private int mensajeId;\r\n    private String contenido;\r\n    private Date fechaEnvio;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"usuarioId\")\r\n    private Usuarios obj_usuario;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"chatId\")\r\n    private Chat obj_chat;\r\n}\r\n"
+        }
+    ]
+}

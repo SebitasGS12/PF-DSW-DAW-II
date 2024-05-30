@@ -16,7 +16,7 @@ public class Imagen {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int imagenID;
+    private Integer imagenID;
     private Boolean estado;
 
 	@Lob

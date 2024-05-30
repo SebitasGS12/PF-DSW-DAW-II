@@ -11,7 +11,7 @@ import java.util.Date;
 public class Respuestas {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int respuestasId;
+    private Integer respuestasId;
     private String contenido;
     private Date fechaCreacion;
 

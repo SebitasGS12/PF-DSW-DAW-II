@@ -11,7 +11,7 @@ import java.util.Date;
 public class Discusiones {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int discusionesId;
+    private Integer discusionesId;
     private String titulo;
     private String descripcion;
     private Date fechaCreacion;

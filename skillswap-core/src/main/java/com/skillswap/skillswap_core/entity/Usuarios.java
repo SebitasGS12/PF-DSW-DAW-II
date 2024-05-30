@@ -17,7 +17,7 @@ public class Usuarios {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int usuarioId;
+    private Integer usuarioId;
     private String correo;
     private String contrasenia;
     private Date fechaRegistro;

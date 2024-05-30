@@ -12,7 +12,7 @@ public class CategoriaForos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int categoriaId;
+    private Integer categoriaId;
     private String nombre;
     private String descripcion;
     private Date fechaCreacion;

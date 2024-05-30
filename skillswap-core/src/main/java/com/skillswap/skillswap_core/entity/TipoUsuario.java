@@ -14,6 +14,6 @@ public class TipoUsuario {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int tipoUsuarioID;
+    private Integer tipoUsuarioID;
     private String descripcion;
 }

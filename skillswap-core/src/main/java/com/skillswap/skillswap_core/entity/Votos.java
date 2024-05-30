@@ -12,7 +12,7 @@ public class Votos {
     
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int votoId;
+    private Integer votoId;
 
     private Boolean tipoVoto;
 

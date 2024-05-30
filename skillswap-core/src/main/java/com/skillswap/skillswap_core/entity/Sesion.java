@@ -16,7 +16,7 @@ public class Sesion {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int sesionId;
+    private Integer sesionId;
 
     @ManyToOne
     @JoinColumn(name = "usuarioID")

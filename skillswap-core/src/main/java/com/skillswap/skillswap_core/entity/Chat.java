@@ -15,5 +15,4 @@ public class Chat {
     private String nombre;
     private Date fechaCreacion;
     private Date fechaModificacion;
-
 }

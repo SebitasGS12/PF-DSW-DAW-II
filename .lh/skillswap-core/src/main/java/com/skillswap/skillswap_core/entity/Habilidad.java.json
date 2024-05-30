@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1717029537211,
@@ -16,6 +16,10 @@
                 {
                     "date": 1717029550221,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n import jakarta.persistence.Entity;\r\n import jakarta.persistence.Table;\r\n+import lombok.Data;\r\n \r\n @Entity\r\n @Table(name = \"amistades\")\r\n @Data\r\n"
+                },
+                {
+                    "date": 1717040952753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     private String descripcion;\r\n \r\n     @ManyToOne\r\n     @JoinColumn(name = \"categoriaHabilidadId\")\r\n-    private CategoriaHabilidad obj_CategoriaHabilidad;\r\n+    private CategoriaHabilida obj_CategoriaHabilidad;\r\n \r\n     @ManyToOne\r\n     @JoinColumn(name = \"perfilId\")\r\n     private Perfil obj_Perfil;\r\n"
                 }
             ],
             "date": 1717029537211,

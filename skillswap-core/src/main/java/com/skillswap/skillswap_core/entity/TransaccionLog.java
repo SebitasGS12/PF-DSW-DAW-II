@@ -18,7 +18,7 @@ public class TransaccionLog {
     
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int transaccionLogId;
+    private Integer transaccionLogId;
     private String descripcion;
     private Date fechaCreacion;
     

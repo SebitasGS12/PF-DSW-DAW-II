@@ -11,7 +11,7 @@ import java.util.Date;
 public class Mensajes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int mensajeId;
+    private Integer mensajeId;
     private String contenido;
     private Date fechaEnvio;
 

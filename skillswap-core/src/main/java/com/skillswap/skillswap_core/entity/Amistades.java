@@ -19,7 +19,7 @@ public class Amistades {
     
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int amistadID;
+    private Integer amistadID;
     private Date fechaAmistad;
     private Boolean amistadAceptada;
 
