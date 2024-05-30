@@ -1,0 +1,26 @@
+{
+    "sourceFile": "skillswap-core/src/main/java/com/skillswap/skillswap_core/entity/Usuario.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1716870199885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716870211774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n public class Usuario {\r\n \r\n+    \r\n \r\n-    \r\n }\r\n"
+                },
+                {
+                    "date": 1716870216895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n public class Usuario {\r\n \r\n-    \r\n+    UsuarioID\r\n \r\n }\r\n"
+                }
+            ],
+            "date": 1716870199885,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\npublic class Usuario {\r\n\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "skillswap-core/src/main/java/com/skillswap/skillswap_core/entity/Amistades.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1716946953034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716946965560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n public class Amistades {\r\n     \r\n+    \r\n \r\n-    \r\n }\r\n"
+                },
+                {
+                    "date": 1716946983564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n import jakarta.persistence.ManyToOne;\r\n \r\n public class Amistades {\r\n     \r\n-        @Id\r\n+    @Id\r\n     @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n     private int SesionId;\r\n \r\n     @ManyToOne\r\n"
+                }
+            ],
+            "date": 1716946953034,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\npublic class Amistades {\r\n    \r\n}\r\n"
+        }
+    ]
+}

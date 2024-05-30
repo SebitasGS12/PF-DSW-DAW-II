@@ -1,0 +1,42 @@
+{
+    "sourceFile": "skillswap-core/src/main/java/com/skillswap/skillswap_core/entity/Imagen.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1716947806925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716947813834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n public class Imagen {\r\n-    \r\n+    private \r\n }\r\n"
+                },
+                {
+                    "date": 1716947819707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n public class Imagen {\r\n-    private \r\n+    private int \r\n }\r\n"
+                },
+                {
+                    "date": 1716947827184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n public class Imagen {\r\n-    private int \r\n+    private int ImagenID;\r\n+    \r\n }\r\n"
+                },
+                {
+                    "date": 1716947837149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n public class Imagen {\r\n     private int ImagenID;\r\n-    \r\n+    private \r\n }\r\n"
+                },
+                {
+                    "date": 1716947883246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n public class Imagen {\r\n     private int ImagenID;\r\n      \r\n \t@Lob\r\n-    @Column(columnDefinition = \"LONGBLOB\",name=\"imagen_contenido\")\r\n+    @Column(columnDefinition = \"LONGBLOB\")\r\n \tprivate byte[] Contenido;\r\n }\r\n"
+                },
+                {
+                    "date": 1716947904373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n @Entity\r\n-@Table(name=)\r\n+@Table(name=\"imagen\")\r\n @Data\r\n public class Imagen {\r\n     private int ImagenID;\r\n \r\n"
+                }
+            ],
+            "date": 1716947806924,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\npublic class Imagen {\r\n    \r\n}\r\n"
+        }
+    ]
+}
