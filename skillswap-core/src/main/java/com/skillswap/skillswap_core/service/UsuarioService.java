@@ -1,11 +1,10 @@
 package com.skillswap.skillswap_core.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.skillswap.skillswap_core.entity.Usuarios;
+import com.skillswap.skillswap_core.entity.Usuario;
 import com.skillswap.skillswap_core.repository.IUsuarioRepository;
 import lombok.AllArgsConstructor;
 
@@ -16,23 +15,23 @@ public class UsuarioService {
     private final IUsuarioRepository repo;
 
     public int ultimoId(){
-        List<Usuarios> lista = repo.findAll();
+        List<Usuario> lista = repo.findAll();
         if (lista.size() == 0 ) {
             return 1;
         }
         return lista.get(lista.size()-1).getUsuarioId()+1 ;
     }
 
-    public List<Usuarios> findAll(){
+    public List<Usuario> findAll(){
         return repo.findAll();
     }
 
-    public Usuarios findById(int id){
+    public Usuario findById(int id){
         //Si lo encuentra devolvera el producto , sino generara una exception
         return  repo.findById(id).orElseThrow();
     }
 
-    public void saveUsuario(Usuarios usuario) {
+    public void saveUsuario(Usuario usuario) {
         if (usuario.getUsuarioId() == null ){
             usuario.setUsuarioId(ultimoId());
         }
@@ -43,15 +42,15 @@ public class UsuarioService {
         repo.deleteById(id);
     }
 
-    public Usuarios nullUsuario() {
-        Usuarios usuarios = new Usuarios();
-        usuarios.setUsuarioId(null);
-        return usuarios;
+    public Usuario nullUsuario() {
+        Usuario usuario = new Usuario();
+        usuario.setUsuarioId(null);
+        return usuario;
     }
-    public Usuarios newUsuario() {
-        Usuarios usuarios = new Usuarios();
-        usuarios.setUsuarioId(ultimoId());
-        return usuarios;
+    public Usuario newUsuario() {
+        Usuario usuario = new Usuario();
+        usuario.setUsuarioId(ultimoId());
+        return usuario;
     }
 
 

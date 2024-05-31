@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class AmistadesService {
-        private final IAmistadesRepository ream;
+    private final IAmistadesRepository ream;
 
     public int ultimoId(){
         List<Amistades> lista = ream.findAll();

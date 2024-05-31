@@ -9,10 +9,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "transaccionLog")
+@Builder
+@RequiredArgsConstructor
 @Data
 public class TransaccionLog {
     
@@ -24,7 +29,7 @@ public class TransaccionLog {
     
     @ManyToOne
     @JoinColumn(name = "usuarioID")
-    private Usuarios obj_Usuario;
+    private Usuario obj_Usuario;
 
 
 }

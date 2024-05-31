@@ -25,10 +25,10 @@ public class Amistades {
 
     @ManyToOne
     @JoinColumn(name = "usuarioID")
-    private Usuarios obj_Usuario;
+    private Usuario obj_Usuario;
     
     @ManyToOne
     @JoinColumn(name = "amigoId")
-    private Usuarios obj_Amigo;
+    private Usuario obj_Amigo;
 
 }

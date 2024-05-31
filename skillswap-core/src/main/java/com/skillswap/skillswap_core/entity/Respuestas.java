@@ -17,7 +17,7 @@ public class Respuestas {
 
     @ManyToOne
     @JoinColumn(name = "usuarioID")
-    private Usuarios obj_Usuario;
+    private Usuario obj_Usuario;
 
     @ManyToOne
     @JoinColumn(name = "discucionesId")

@@ -18,7 +18,7 @@ public class Discusiones {
 
     @ManyToOne
     @JoinColumn(name = "usuarioId")
-    private Usuarios obj_Usuario;
+    private Usuario obj_Usuario;
 
     @ManyToOne
     @JoinColumn(name = "foroId")

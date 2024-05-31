@@ -1,7 +1,10 @@
 package com.skillswap.skillswap_core.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.skillswap.skillswap_core.entity.Usuario;
+import com.skillswap.skillswap_core.repository.IUsuarioRepository;
 import org.springframework.stereotype.Service;
 
 import com.skillswap.skillswap_core.entity.TipoUsuario;
@@ -12,7 +15,9 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class TipoUsuarioService {
-                 private final ITipoUsuarioRepository retiusu;
+
+    private final ITipoUsuarioRepository retiusu;
+    private final IUsuarioRepository repoUsu;
 
     public int ultimoId(){
         List<TipoUsuario> lista = retiusu.findAll();
@@ -35,8 +40,26 @@ public class TipoUsuarioService {
         }
         retiusu.save(tipoUsuario);
     }
-    public void delteTipoUsuarioById(Integer id) {
-        retiusu.deleteById(id);
+    public void deleteTipoUsuarioById(Integer id) {
+        Optional<TipoUsuario> optionalTipoUsuario = retiusu.findById(id);
+        if (optionalTipoUsuario.isPresent()) {
+            TipoUsuario tipoUsuario = optionalTipoUsuario.get();
+
+            // Obtener usuarios asociados y desvincularlos
+            List<Usuario> usuarios = tipoUsuario.getUsuarios();
+            for (Usuario usuario : usuarios) {
+                usuario.setObj_tipoUsuario(null);
+                repoUsu.save(usuario);
+            }
+
+            // Ahora eliminar el tipoUsuario
+            retiusu.deleteById(id);
+        } else {
+            throw new RuntimeException("TipoUsuario not found");
+        }
+
+
+
     }
     public TipoUsuario nullTipoUsuario() {
         TipoUsuario tipoUsuario = new TipoUsuario();
