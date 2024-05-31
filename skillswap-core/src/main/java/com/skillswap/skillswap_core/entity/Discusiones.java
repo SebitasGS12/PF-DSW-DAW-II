@@ -3,7 +3,9 @@ package com.skillswap.skillswap_core.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "discuciones")
@@ -23,4 +25,7 @@ public class Discusiones {
     @ManyToOne
     @JoinColumn(name = "foroId")
     private Foros obj_Foro;
+
+    @OneToMany(mappedBy = "obj_Discuciones",cascade =CascadeType.ALL,orphanRemoval = true )
+    private List<Respuestas>  respuestas = new ArrayList<>();
 }

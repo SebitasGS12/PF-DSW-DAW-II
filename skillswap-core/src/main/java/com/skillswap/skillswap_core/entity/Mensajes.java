@@ -17,7 +17,7 @@ public class Mensajes {
 
     @ManyToOne
     @JoinColumn(name = "usuarioId")
-    private Usuario obj_usuario;
+    private Usuario obj_Usuario;
 
     @ManyToOne
     @JoinColumn(name = "chatId")

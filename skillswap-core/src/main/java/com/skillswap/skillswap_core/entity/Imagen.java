@@ -1,5 +1,9 @@
 package com.skillswap.skillswap_core.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,4 +26,5 @@ public class Imagen {
 	@Lob
     @Column(columnDefinition = "LONGBLOB")
 	private byte[] contenido;
+
 }

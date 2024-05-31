@@ -3,11 +3,39 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1717042214721,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717120370740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,5 +18,9 @@\n \r\n     @ManyToOne\r\n     @JoinColumn(name = \"categoriaForoId\")\r\n     private CategoriaForos obj_CategoriaForo;\r\n+\r\n+\r\n+\r\n+    \r\n }\r\n"
+                },
+                {
+                    "date": 1717120380263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n \r\n import jakarta.persistence.*;\r\n import lombok.Data;\r\n \r\n+import java.util.ArrayList;\r\n import java.util.Date;\r\n+import java.util.List;\r\n \r\n @Entity\r\n @Table(name = \"foros\")\r\n @Data\r\n@@ -20,7 +22,8 @@\n     @JoinColumn(name = \"categoriaForoId\")\r\n     private CategoriaForos obj_CategoriaForo;\r\n \r\n \r\n+        @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n+    private List<Notificaciones>  notificaciones = new ArrayList<>();\r\n \r\n-    \r\n }\r\n"
+                },
+                {
+                    "date": 1717121026294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,8 @@\n     @JoinColumn(name = \"categoriaForoId\")\r\n     private CategoriaForos obj_CategoriaForo;\r\n \r\n \r\n-        @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n+    @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Notificaciones>  notificaciones = new ArrayList<>();\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1717121041122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,29 @@\n+package com.skillswap.skillswap_core.entity;\r\n+\r\n+import jakarta.persistence.*;\r\n+import lombok.Data;\r\n+\r\n+import java.util.ArrayList;\r\n+import java.util.Date;\r\n+import java.util.List;\r\n+\r\n+@Entity\r\n+@Table(name = \"foros\")\r\n+@Data\r\n+public class Foros {\r\n+    @Id\r\n+    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n+    private Integer foroId;\r\n+    private String titulo;\r\n+    private String descripcion;\r\n+    private Date fechaCreacion;\r\n+\r\n+    @ManyToOne\r\n+    @JoinColumn(name = \"categoriaForoId\")\r\n+    private CategoriaForos obj_CategoriaForo;\r\n+\r\n+\r\n+    @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n+    private List<Foros>  notificaciones = new ArrayList<>();\r\n+\r\n+}\r\n"
+                },
+                {
+                    "date": 1717121049337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,7 +23,7 @@\n     private CategoriaForos obj_CategoriaForo;\r\n \r\n \r\n     @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n-    private List<Foros>  notificaciones = new ArrayList<>();\r\n+    private List<Discusiones>  notificaciones = new ArrayList<>();\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1717121125936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,28 @@\n+package com.skillswap.skillswap_core.entity;\r\n+\r\n+import jakarta.persistence.*;\r\n+import lombok.Data;\r\n+\r\n+import java.util.ArrayList;\r\n+import java.util.Date;\r\n+import java.util.List;\r\n+\r\n+@Entity\r\n+@Table(name = \"foros\")\r\n+@Data\r\n+public class Foros {\r\n+    @Id\r\n+    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n+    private Integer foroId;\r\n+    private String titulo;\r\n+    private String descripcion;\r\n+    private Date fechaCreacion;\r\n+\r\n+    @ManyToOne\r\n+    @JoinColumn(name = \"categoriaForoId\")\r\n+    private CategoriaForos obj_CategoriaForo;\r\n+\r\n+    @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n+    private List<Discusiones>  discusiones = new ArrayList<>();\r\n+\r\n+}\r\n"
+                },
+                {
+                    "date": 1717121557205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,69 +18,15 @@\n     private String descripcion;\r\n     private Date fechaCreacion;\r\n \r\n     @ManyToOne\r\n-    @JoinColumn(name = \"categoriaForoId\")\r\n-    private CategoriaForos obj_CategoriaForo;\r\n+    @JoinColumn(name = \"usuarioId\")\r\n+    private Usuario obj_Usuario;\r\n \r\n-    @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n-    private List<Discusiones>  discusiones = new ArrayList<>();\r\n-\r\n-}\r\n-package com.skillswap.skillswap_core.entity;\r\n-\r\n-import jakarta.persistence.*;\r\n-import lombok.Data;\r\n-\r\n-import java.util.ArrayList;\r\n-import java.util.Date;\r\n-import java.util.List;\r\n-\r\n-@Entity\r\n-@Table(name = \"foros\")\r\n-@Data\r\n-public class Foros {\r\n-    @Id\r\n-    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n-    private Integer foroId;\r\n-    private String titulo;\r\n-    private String descripcion;\r\n-    private Date fechaCreacion;\r\n-\r\n     @ManyToOne\r\n     @JoinColumn(name = \"categoriaForoId\")\r\n     private CategoriaForos obj_CategoriaForo;\r\n \r\n-\r\n     @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n-    private List<Discusiones>  notificaciones = new ArrayList<>();\r\n+    private List<Discusiones>  discusiones = new ArrayList<>();\r\n \r\n }\r\n-package com.skillswap.skillswap_core.entity;\r\n-\r\n-import jakarta.persistence.*;\r\n-import lombok.Data;\r\n-\r\n-import java.util.ArrayList;\r\n-import java.util.Date;\r\n-import java.util.List;\r\n-\r\n-@Entity\r\n-@Table(name = \"foros\")\r\n-@Data\r\n-public class Foros {\r\n-    @Id\r\n-    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n-    private Integer foroId;\r\n-    private String titulo;\r\n-    private String descripcion;\r\n-    private Date fechaCreacion;\r\n-\r\n-    @ManyToOne\r\n-    @JoinColumn(name = \"categoriaForoId\")\r\n-    private CategoriaForos obj_CategoriaForo;\r\n-\r\n-\r\n-    @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n-    private List<Notificaciones>  notificaciones = new ArrayList<>();\r\n-\r\n-}\r\n"
                 }
             ],
             "date": 1717042214721,

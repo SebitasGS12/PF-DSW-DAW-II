@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1717042217701,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717121943701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,31 @@\n+package com.skillswap.skillswap_core.entity;\r\n+\r\n+import jakarta.persistence.*;\r\n+import lombok.Data;\r\n+\r\n+import java.util.ArrayList;\r\n+import java.util.Date;\r\n+import java.util.List;\r\n+\r\n+@Entity\r\n+@Table(name = \"discuciones\")\r\n+@Data\r\n+public class Discusiones {\r\n+    @Id\r\n+    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n+    private Integer discusionesId;\r\n+    private String titulo;\r\n+    private String descripcion;\r\n+    private Date fechaCreacion;\r\n+\r\n+    @ManyToOne\r\n+    @JoinColumn(name = \"usuarioId\")\r\n+    private Usuario obj_Usuario;\r\n+\r\n+    @ManyToOne\r\n+    @JoinColumn(name = \"foroId\")\r\n+    private Foros obj_Foro;\r\n+\r\n+        @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n+    private List<Discusiones>  discusiones = new ArrayList<>();\r\n+}\r\n"
+                },
+                {
+                    "date": 1717121948922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,7 @@\n     @ManyToOne\r\n     @JoinColumn(name = \"foroId\")\r\n     private Foros obj_Foro;\r\n \r\n-    @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n+    @OneToMany(mappedBy = \"obj_Discuciones\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Discusiones>  discusiones = new ArrayList<>();\r\n }\r\n"
+                },
+                {
+                    "date": 1717121954471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,6 +26,6 @@\n     @JoinColumn(name = \"foroId\")\r\n     private Foros obj_Foro;\r\n \r\n     @OneToMany(mappedBy = \"obj_Discuciones\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n-    private List<>  discusiones = new ArrayList<>();\r\n+    private List<Respuestas>  discusiones = new ArrayList<>();\r\n }\r\n"
                 }
             ],
             "date": 1717042217701,
