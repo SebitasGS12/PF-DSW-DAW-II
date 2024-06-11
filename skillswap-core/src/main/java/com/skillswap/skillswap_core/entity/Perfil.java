@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -19,7 +20,7 @@ public class Perfil {
     
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int perfilID;
+    private Integer perfilID;
 
     private String nombre;
     private String apellido;
@@ -38,8 +39,8 @@ public class Perfil {
 
     private String biografia;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "usuarioID")
-    private Usuarios obj_Usuario;
+    private Usuario obj_Usuario;
 
 }

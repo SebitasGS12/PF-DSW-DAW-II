@@ -12,7 +12,7 @@ public class Votos {
     
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int votoId;
+    private Integer votoId;
 
     private Boolean tipoVoto;
 
@@ -24,6 +24,6 @@ public class Votos {
 
     @ManyToOne
     @JoinColumn(name = "usuarioID")
-    private Usuarios obj_Usuario;
+    private Usuario obj_Usuario;
 
 }

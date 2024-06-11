@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1716870387217,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717117331084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,17 +20,21 @@\n \t\t<dependency>\n \t\t\t<groupId>org.springframework.boot</groupId>\n \t\t\t<artifactId>spring-boot-starter-thymeleaf</artifactId>\n \t\t</dependency>\n+\t\t<dependency> \n+<groupId>org.springframework.boot</groupId> \n+<artifactId>spring-boot-starter-security</artifactId> \n+</dependency>\n \t\t<dependency>\n \t\t\t<groupId>org.springframework.boot</groupId>\n \t\t\t<artifactId>spring-boot-starter-web</artifactId>\n \t\t</dependency>\n-<dependency>\n-<groupId>org.springframework.boot</groupId>\n-<artifactId>spring-boot-starter-data-jpa</artifactId>\n-</dependency>\n \t\t<dependency>\n+\t\t<groupId>org.springframework.boot</groupId>\n+\t\t<artifactId>spring-boot-starter-data-jpa</artifactId>\n+\t\t</dependency>\n+\t\t<dependency>\n \t\t\t<groupId>org.springframework.boot</groupId>\n \t\t\t<artifactId>spring-boot-devtools</artifactId>\n \t\t\t<scope>runtime</scope>\n \t\t\t<optional>true</optional>\n"
                 }
             ],
             "date": 1716870387217,

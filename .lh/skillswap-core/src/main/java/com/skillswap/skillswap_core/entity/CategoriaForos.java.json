@@ -1,0 +1,34 @@
+{
+    "sourceFile": "skillswap-core/src/main/java/com/skillswap/skillswap_core/entity/CategoriaForos.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1717042233515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717124018033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n \r\n import jakarta.persistence.*;\r\n import lombok.Data;\r\n \r\n+import java.util.ArrayList;\r\n import java.util.Date;\r\n+import java.util.List;\r\n \r\n @Entity\r\n @Table(name = \"categoriaForos\")\r\n @Data\r\n@@ -15,6 +17,7 @@\n     private Integer categoriaId;\r\n     private String nombre;\r\n     private String descripcion;\r\n     private Date fechaCreacion;\r\n-\r\n+    @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n+    private List<Discusiones>  discusiones = new ArrayList<>();\r\n }\r\n"
+                },
+                {
+                    "date": 1717124023141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+package com.skillswap.skillswap_core.entity;\r\n+\r\n+import jakarta.persistence.*;\r\n+import lombok.Data;\r\n+\r\n+import java.util.ArrayList;\r\n+import java.util.Date;\r\n+import java.util.List;\r\n+\r\n+@Entity\r\n+@Table(name = \"categoriaForos\")\r\n+@Data\r\n+public class CategoriaForos {\r\n+\r\n+    @Id\r\n+    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n+    private Integer categoriaId;\r\n+    private String nombre;\r\n+    private String descripcion;\r\n+    private Date fechaCreacion;\r\n+\r\n+    @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n+    private List<Foros>  discusiones = new ArrayList<>();\r\n+}\r\n"
+                },
+                {
+                    "date": 1717124140184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,6 +19,6 @@\n     private String descripcion;\r\n     private Date fechaCreacion;\r\n \r\n     @OneToMany(mappedBy = \"obj_Foro\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n-    private List<Foros>  discusiones = new ArrayList<>();\r\n+    private List<Foros>  foros = new ArrayList<>();\r\n }\r\n"
+                },
+                {
+                    "date": 1717124154064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,7 @@\n     private String nombre;\r\n     private String descripcion;\r\n     private Date fechaCreacion;\r\n \r\n-    @OneToMany(mappedBy = \"obj_Foro\" )\r\n+    @OneToMany(mappedBy = \"obj_CategoriaForo\" )\r\n     private List<Foros>  foros = new ArrayList<>();\r\n }\r\n"
+                }
+            ],
+            "date": 1717042233515,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.Data;\r\n\r\nimport java.util.Date;\r\n\r\n@Entity\r\n@Table(name = \"categoriaForos\")\r\n@Data\r\npublic class CategoriaForos {\r\n\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Integer categoriaId;\r\n    private String nombre;\r\n    private String descripcion;\r\n    private Date fechaCreacion;\r\n\r\n}\r\n"
+        }
+    ]
+}

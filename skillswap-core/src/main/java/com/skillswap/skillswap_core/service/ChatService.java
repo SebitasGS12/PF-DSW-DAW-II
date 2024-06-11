@@ -1,0 +1,52 @@
+package com.skillswap.skillswap_core.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.skillswap.skillswap_core.entity.Chat;
+import com.skillswap.skillswap_core.repository.IChatRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class ChatService {
+        private final IChatRepository rechat;
+
+    public int ultimoId(){
+        List<Chat> lista = rechat.findAll();
+        if (lista.size() == 0 ) {
+            return 1;
+        }
+        return lista.get(lista.size()-1).getChatId()+1 ;
+    }
+
+    public List<Chat> findAll(){
+        return rechat.findAll();
+    }
+         public Chat findById(int id){
+        return  rechat.findById(id).orElseThrow();
+    }
+     public void saveChat(Chat chat) {
+        if (chat.getChatId() == null ){
+            chat.setChatId(ultimoId());
+        }
+        rechat.save(chat);
+    }
+ 
+    public void delteAmistadesById(Integer id) {
+        rechat.deleteById(id);
+    }
+    public Chat nullChat() {
+        Chat chat = new Chat();
+        chat.setChatId(null);
+        return chat;
+    }
+
+    public Chat newChat() {
+        Chat chat = new Chat();
+        chat.setChatId(ultimoId());
+        return chat;
+    }
+}

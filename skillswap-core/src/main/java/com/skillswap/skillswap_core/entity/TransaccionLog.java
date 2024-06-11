@@ -9,22 +9,28 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "transaccionLog")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class TransaccionLog {
     
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int transaccionLogId;
+    private Integer transaccionLogId;
     private String descripcion;
     private Date fechaCreacion;
     
     @ManyToOne
     @JoinColumn(name = "usuarioID")
-    private Usuarios obj_Usuario;
+    private Usuario obj_Usuario;
 
 
 }
