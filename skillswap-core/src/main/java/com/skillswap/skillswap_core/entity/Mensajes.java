@@ -11,13 +11,13 @@ import java.util.Date;
 public class Mensajes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int mensajeId;
+    private Integer mensajeId;
     private String contenido;
     private Date fechaEnvio;
 
     @ManyToOne
     @JoinColumn(name = "usuarioId")
-    private Usuarios obj_usuario;
+    private Usuario obj_Usuario;
 
     @ManyToOne
     @JoinColumn(name = "chatId")

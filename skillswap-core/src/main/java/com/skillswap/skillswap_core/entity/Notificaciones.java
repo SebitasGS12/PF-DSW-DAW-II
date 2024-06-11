@@ -11,7 +11,7 @@ import java.util.Date;
 public class Notificaciones {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int notificacionesId;
+    private Integer notificacionesId;
 
     private String titulo;
     private String contenido;
@@ -24,7 +24,7 @@ public class Notificaciones {
 
     @ManyToOne
     @JoinColumn(name = "usuarioID")
-    private Usuarios obj_Usuario;
+    private Usuario obj_Usuario;
 
 
 }

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "skillswap-core/src/main/java/com/skillswap/skillswap_core/service/UsuarioService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1717040926586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717041023282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,8 @@\n \r\n @Service\r\n public class UsuarioService {\r\n \r\n+    \r\n+\r\n+\r\n }\r\n"
+                },
+                {
+                    "date": 1717041034094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+package com.skillswap.skillswap_core.service;\r\n+\r\n+import org.springframework.stereotype.Service;\r\n+\r\n+import lombok.AllArgsConstructor;\r\n+\r\n+@Service\r\n+@AllArgsConstructor\r\n+public class UsuarioService {\r\n+\r\n+    private final IUsuario\r\n+\r\n+\r\n+\r\n+}\r\n"
+                }
+            ],
+            "date": 1717040926586,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\npublic class UsuarioService {\r\n\r\n}\r\n"
+        }
+    ]
+}

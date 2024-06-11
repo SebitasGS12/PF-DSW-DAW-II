@@ -10,7 +10,7 @@ public class CategoriaHabilidad {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int categoriaHabilidadId;
+    private Integer categoriaHabilidadId;
     private String nombre;
 
     @ManyToOne

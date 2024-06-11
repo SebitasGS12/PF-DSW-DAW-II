@@ -11,9 +11,8 @@ import java.util.Date;
 public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int chatId;
+    private Integer chatId;
     private String nombre;
     private Date fechaCreacion;
     private Date fechaModificacion;
-
 }

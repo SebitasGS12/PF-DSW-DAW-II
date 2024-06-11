@@ -3,6 +3,7 @@ package com.skillswap.skillswap_core.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+
 @Entity
 @Table(name = "habilidad")
 @Data
@@ -10,7 +11,7 @@ public class Habilidad {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private int habilidadId;
+    private Integer habilidadId;
     private String nombre;
     private String descripcion;
 
