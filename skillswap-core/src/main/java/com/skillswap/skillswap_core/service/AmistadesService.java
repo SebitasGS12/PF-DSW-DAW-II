@@ -25,7 +25,7 @@ public class AmistadesService {
     public List<Amistades> findAll(){
         return ream.findAll();
     }
-     public Amistades findById(int id){
+    public Amistades findById(int id){
         return  ream.findById(id).orElseThrow();
     }
 

@@ -4,7 +4,6 @@ import com.skillswap.skillswap_core.constants.Estandares;
 import com.skillswap.skillswap_core.entity.Amistades;
 import com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;
 import com.skillswap.skillswap_core.service.AmistadesService;
-import com.skillswap.skillswap_core.transacciones.Logger;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,63 +22,56 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
-
 @RestController
 @RequestMapping(Estandares.API + "Amistades")
 @RequiredArgsConstructor
+@CrossOrigin(Estandares.CROSS)
 public class AmistadesController {
 
     private final AmistadesService amistadesService;
-    Logger log = Logger.getLogger(AmistadesController.class);
 
     @GetMapping
-    public List<Amistades> listarAmistades() {
-        log.info("Amistad Listado ");
-        return amistadesService.findAll();
+    public ResponseEntity<List<Amistades>> listarAmistades() {
+        return ResponseEntity.ok(amistadesService.findAll());
     }
     
     @GetMapping("/{id}")
-    public Amistades buscarAmistad(@PathVariable int id) {
-        log.info("Amistad Busqueda "+id);
+    public ResponseEntity<Amistades> buscarAmistad(@PathVariable int id) {
         try {
-            return amistadesService.findById(id);
+            Amistades amistad = amistadesService.findById(id);
+            return ResponseEntity.ok(amistad);
         } catch (NoSuchElementException e) {
-            throw new ResourceNotFoundException("Objecto con id : "+ id);
+            throw new ResourceNotFoundException("Objeto con id : " + id);
         }
     }
-    
 
     @PostMapping
-    public Amistades guardarAmistad(@RequestBody Amistades amistad) {
-        log.transaccion("Amistad Guardada "+amistad.getAmistadID());
-        return amistadesService.saveAmistades(amistad);
+    public ResponseEntity<Amistades> guardarAmistad(@RequestBody Amistades amistad) {
+        Amistades nuevaAmistad = amistadesService.saveAmistades(amistad);
+        return new ResponseEntity<>(nuevaAmistad, HttpStatus.CREATED);
     }
+
     @PutMapping("/{id}")
-    public Amistades actualizarAmistad(@PathVariable int id,@RequestBody Amistades newAmistad){
-        log.transaccion("Amistad Actualizada " + id);
+    public ResponseEntity<Amistades> actualizarAmistad(@PathVariable int id, @RequestBody Amistades newAmistad) {
         validarExistencia(id);
         newAmistad.setAmistadID(id);
-        return amistadesService.saveAmistades(newAmistad);
+        Amistades updatedAmistad = amistadesService.saveAmistades(newAmistad);
+        return ResponseEntity.ok(updatedAmistad);
     }
 
     @DeleteMapping("/{id}")
-    public String eliminarAmistad(@PathVariable int id){
-        log.transaccion("Amistad Eliminada " + id);
-
+    public ResponseEntity<String> eliminarAmistad(@PathVariable int id) {
         validarExistencia(id);
         amistadesService.delteAmistadesById(id);
-        String msg = "Amistad Eliminada : "+id;
-        return msg;
+        String msg = "Amistad Eliminada : " + id;
+        return ResponseEntity.ok(msg);
     }
 
     private void validarExistencia(int id) {
         try {
-            log.info("Se buscó una Amistad con id : "+id);   
             amistadesService.findById(id);
-        }catch (NoSuchElementException e) {
-            throw new ResourceNotFoundException("Objecto con id : "+ id);
+        } catch (NoSuchElementException e) {
+            throw new ResourceNotFoundException("Objeto con id : " + id);
         }
     }
-
-
 }
