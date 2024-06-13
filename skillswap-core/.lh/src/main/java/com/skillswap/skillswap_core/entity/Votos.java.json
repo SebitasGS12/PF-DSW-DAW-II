@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/entity/Votos.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1718218895270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1718218895270,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.Data;\r\n\r\nimport java.sql.Date;\r\n\r\n@Entity\r\n@Table(name = \"votos\")\r\n@Data\r\npublic class Votos {\r\n    \r\n    @Id\r\n    @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n    private Integer votoId;\r\n\r\n    private Boolean tipoVoto;\r\n\r\n    private Date fechaVoto;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"respuestaId\")\r\n    private Respuestas obj_Respuesta;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"usuarioID\")\r\n    private Usuario obj_Usuario;\r\n\r\n}\r\n"
+        }
+    ]
+}

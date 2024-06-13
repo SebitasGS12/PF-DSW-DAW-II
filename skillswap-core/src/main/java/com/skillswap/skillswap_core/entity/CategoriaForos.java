@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "categoriaForos")
@@ -19,6 +21,7 @@ public class CategoriaForos {
     private String descripcion;
     private Date fechaCreacion;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "obj_CategoriaForo" )
     private List<Foros>  foros = new ArrayList<>();
 }

@@ -1,8 +1,10 @@
 package com.skillswap.skillswap_core.entity;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -33,28 +35,34 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "tipoUsuarioID")
     private TipoUsuario obj_tipoUsuario;
-
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario",cascade =CascadeType.ALL,orphanRemoval = true )
     private List<Amistades>  amistades = new ArrayList<>();
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario",cascade =CascadeType.ALL,orphanRemoval = true )
     private List<Mensajes>  mensajes = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario",cascade =CascadeType.ALL,orphanRemoval = true )
     private List<Notificaciones>  notificaciones = new ArrayList<>();
     
     //TODO AGREGAR NULL AL ELIMINAR
+    @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario" )
     private List<Discusiones>  discusiones = new ArrayList<>();
     
     //TODO AGREGAR NULL AL ELIMINAR
+    @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario")
     private List<Foros>  foros = new ArrayList<>();
 
+    @JsonIgnore
     @OneToOne(mappedBy = "obj_Usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private Perfil perfil;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario",cascade =CascadeType.ALL,orphanRemoval = true )
     private List<Respuestas>  respuestas = new ArrayList<>();
 }

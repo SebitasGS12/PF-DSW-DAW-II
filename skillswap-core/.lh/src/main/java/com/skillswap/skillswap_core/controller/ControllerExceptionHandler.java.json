@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/controller/ControllerExceptionHandler.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1718221803310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718221808526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n package com.skillswap.skillswap_core.controller;\r\n-\r\n+@ControllerAdvice\r\n public class ControllerExceptionHandler {\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1718221843770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n package com.skillswap.skillswap_core.controller;\r\n \r\n+import org.springframework.web.bind.annotation.ControllerAdvice;\r\n \r\n-\r\n @ControllerAdvice\r\n public class ControllerExceptionHandler {\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1718221863279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,18 @@\n package com.skillswap.skillswap_core.controller;\r\n \r\n+import org.springframework.http.HttpStatus;\r\n+import org.springframework.http.ResponseEntity;\r\n import org.springframework.web.bind.annotation.ControllerAdvice;\r\n+import org.springframework.web.bind.annotation.ExceptionHandler;\r\n+import org.springframework.web.context.request.WebRequest;\r\n \r\n @ControllerAdvice\r\n public class ControllerExceptionHandler {\r\n \r\n+@ExceptionHandler(ResourceNotFoundException.class)\r\n+    public ResponseEntity<?> resourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {\r\n+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));\r\n+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);\r\n+    }\r\n+\r\n }\r\n"
+                }
+            ],
+            "date": 1718221803310,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.controller;\r\n\r\npublic class ControllerExceptionHandler {\r\n\r\n}\r\n"
+        }
+    ]
+}

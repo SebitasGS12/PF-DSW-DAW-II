@@ -29,12 +29,13 @@ public class AmistadesService {
         return  ream.findById(id).orElseThrow();
     }
 
-    public void saveAmistades(Amistades amistades) {
+    public Amistades saveAmistades(Amistades amistades) {
         if (amistades.getAmistadID() == null ){
             amistades.setAmistadID(ultimoId());
         }
-        ream.save(amistades);
+        return ream.save(amistades);
     }
+    
     public void delteAmistadesById(Integer id) {
         ream.deleteById(id);
     }

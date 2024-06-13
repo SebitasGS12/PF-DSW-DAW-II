@@ -10,8 +10,10 @@ import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.sql.Date;
 
 @Component
 @RequiredArgsConstructor
@@ -26,12 +28,18 @@ public class Logger {
         logger.NombreClase = T.getName();
         return logger;
     }
+    public static Logger getLogger(String  clase ){
+        Logger logger = new Logger(null,null);
+        logger.NombreClase = clase;
+        return logger;
+    }
+
     private void enviarLog(String msg){
         Sesion sesion = sesionService.getSesion();
 
         transaccionLogService.saveTransaccionLog(
                 TransaccionLog.builder()
-                        .fechaCreacion(new Date())
+                        .fechaCreacion(Date.valueOf(LocalDate.now()))
                         .descripcion(msg)
                         .obj_Usuario(sesion.getObj_Usuario())
                         .build()

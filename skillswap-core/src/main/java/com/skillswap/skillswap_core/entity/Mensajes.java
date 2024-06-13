@@ -3,7 +3,7 @@ package com.skillswap.skillswap_core.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "mensaje")

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/exceptions/ResourceNotFoundException.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1718230395353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718230402253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n package com.skillswap.skillswap_core.exceptions;\r\n \r\n-public class ResourceNotFoundException {\r\n+public class ResourceNotFoundException  extends RuntimeException{\r\n \r\n     \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1718230412600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package com.skillswap.skillswap_core.exceptions;\r\n \r\n public class ResourceNotFoundException  extends RuntimeException{\r\n-    private\r\n+    private static final long \r\n \r\n     \r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1718230395353,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.exceptions;\r\n\r\n/**\r\n * ResourceNotFoundException\r\n */\r\npublic class ResourceNotFoundException {\r\n\r\n    \r\n}"
+        }
+    ]
+}

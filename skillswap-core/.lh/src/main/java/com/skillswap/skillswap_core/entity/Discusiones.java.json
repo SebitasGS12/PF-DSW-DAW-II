@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/entity/Discusiones.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1718218908008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718219424810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,10 @@\n import java.util.ArrayList;\r\n import java.sql.Date;\r\n import java.util.List;\r\n \r\n+import com.fasterxml.jackson.annotation.JsonIgnore;\r\n+\r\n @Entity\r\n @Table(name = \"discuciones\")\r\n @Data\r\n public class Discusiones {\r\n@@ -25,7 +27,8 @@\n     @ManyToOne\r\n     @JoinColumn(name = \"foroId\")\r\n     private Foros obj_Foro;\r\n \r\n+    @JsonIgnore\r\n     @OneToMany(mappedBy = \"obj_Discuciones\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Respuestas>  respuestas = new ArrayList<>();\r\n }\r\n"
+                }
+            ],
+            "date": 1718218908008,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.Data;\r\n\r\nimport java.util.ArrayList;\r\nimport java.sql.Date;\r\nimport java.util.List;\r\n\r\n@Entity\r\n@Table(name = \"discuciones\")\r\n@Data\r\npublic class Discusiones {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Integer discusionesId;\r\n    private String titulo;\r\n    private String descripcion;\r\n    private Date fechaCreacion;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"usuarioId\")\r\n    private Usuario obj_Usuario;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"foroId\")\r\n    private Foros obj_Foro;\r\n\r\n    @OneToMany(mappedBy = \"obj_Discuciones\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n    private List<Respuestas>  respuestas = new ArrayList<>();\r\n}\r\n"
+        }
+    ]
+}

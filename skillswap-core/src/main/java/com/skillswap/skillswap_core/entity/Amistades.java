@@ -1,6 +1,7 @@
 package com.skillswap.skillswap_core.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.sql.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
