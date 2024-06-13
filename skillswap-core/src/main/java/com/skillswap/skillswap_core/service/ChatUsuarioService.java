@@ -29,11 +29,11 @@ public class ChatUsuarioService {
         return  rechus.findById(id).orElseThrow();
     }
 
-    public void saveChatUsuario(ChatUsuario chatUsuario) {
+    public ChatUsuario saveChatUsuario(ChatUsuario chatUsuario) {
         if (chatUsuario.getChatUsuarioId() == null ){
             chatUsuario.setChatUsuarioId(ultimoId());
         }
-        rechus.save(chatUsuario);
+        return rechus.save(chatUsuario);
     }
     public void delteChatUsuarioById(Integer id) {
         rechus.deleteById(id);

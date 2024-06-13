@@ -29,11 +29,11 @@ public class HabilidadService {
         return  reha.findById(id).orElseThrow();
     }
 
-    public void saveHabilidad(Habilidad habilidad) {
+    public Habilidad saveHabilidad(Habilidad habilidad) {
         if (habilidad.getHabilidadId() == null ){
             habilidad.setHabilidadId(ultimoId());
         }
-        reha.save(habilidad);
+       return reha.save(habilidad);
     }
     public void delteHabilidadById(Integer id) {
         reha.deleteById(id);

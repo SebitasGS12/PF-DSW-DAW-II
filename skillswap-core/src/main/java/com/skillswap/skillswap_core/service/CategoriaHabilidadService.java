@@ -29,11 +29,11 @@ public class CategoriaHabilidadService {
         return  reha.findById(id).orElseThrow();
     }
 
-    public void saveCategoriaHabilidad(CategoriaHabilidad categoriaHabilidad) {
+    public CategoriaHabilidad saveCategoriaHabilidad(CategoriaHabilidad categoriaHabilidad) {
         if (categoriaHabilidad.getCategoriaHabilidadId() == null ){
             categoriaHabilidad.setCategoriaHabilidadId(ultimoId());
         }
-        reha.save(categoriaHabilidad);
+        return reha.save(categoriaHabilidad);
     }
     public void delteCategoriaHabilidadById(Integer id) {
         reha.deleteById(id);

@@ -29,11 +29,11 @@ public class DiscusionesService {
         return  redis.findById(id).orElseThrow();
     }
 
-    public void saveDiscusiones(Discusiones discusiones) {
+    public Discusiones saveDiscusiones(Discusiones discusiones) {
         if (discusiones.getDiscusionesId() == null ){
             discusiones.setDiscusionesId(ultimoId());
         }
-        redis.save(discusiones);
+        return redis.save(discusiones);
     }
     public void delteDiscusionesById(Integer id) {
         redis.deleteById(id);
