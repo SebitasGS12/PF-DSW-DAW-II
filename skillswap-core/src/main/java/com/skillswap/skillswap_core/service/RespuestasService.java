@@ -29,11 +29,11 @@ public class RespuestasService {
         return  reresp.findById(id).orElseThrow();
     }
 
-    public void saveRespuestas(Respuestas respuestas) {
+    public Respuestas saveRespuestas(Respuestas respuestas) {
         if (respuestas.getRespuestasId() == null ){
             respuestas.setRespuestasId(ultimoId());
         }
-        reresp.save(respuestas);
+        return reresp.save(respuestas);
     }
     public void delteRespuestasById(Integer id) {
         reresp.deleteById(id);

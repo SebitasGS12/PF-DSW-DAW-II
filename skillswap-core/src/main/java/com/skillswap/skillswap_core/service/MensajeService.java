@@ -29,12 +29,13 @@ public class MensajeService {
         return  remen.findById(id).orElseThrow();
     }
 
-    public void saveMensajes(Mensajes mensajes) {
+    public Mensajes saveMensajes(Mensajes mensajes) {
         if (mensajes.getMensajeId() == null ){
             mensajes.setMensajeId(ultimoId());
         }
-        remen.save(mensajes);
+        return remen.save(mensajes);
     }
+
     public void delteMensajesById(Integer id) {
         remen.deleteById(id);
     }

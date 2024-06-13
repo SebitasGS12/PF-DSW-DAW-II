@@ -34,11 +34,11 @@ public class TipoUsuarioService {
         return  retiusu.findById(id).orElseThrow();
     }
 
-    public void saveTipoUsuario(TipoUsuario tipoUsuario) {
+    public TipoUsuario saveTipoUsuario(TipoUsuario tipoUsuario) {
         if (tipoUsuario.getTipoUsuarioID() == null ){
             tipoUsuario.setTipoUsuarioID(ultimoId());
         }
-        retiusu.save(tipoUsuario);
+        return retiusu.save(tipoUsuario);
     }
     public void deleteTipoUsuarioById(Integer id) {
         Optional<TipoUsuario> optionalTipoUsuario = retiusu.findById(id);
