@@ -28,12 +28,15 @@ public class CategoriaForosService {
          public CategoriaForos findById(int id){
         return  recafo.findById(id).orElseThrow();
     }
-    public void saveCategoriasForos(CategoriaForos categoriaForos) {
+
+
+    public CategoriaForos saveCategoriasForos(CategoriaForos categoriaForos) {
         if (categoriaForos.getCategoriaId() == null ){
             categoriaForos.setCategoriaId(ultimoId());
         }
-        recafo.save(categoriaForos);
+        return recafo.save(categoriaForos);
     }
+
     public void delteCategoriaForos(Integer id) {
         recafo.deleteById(id);
     }

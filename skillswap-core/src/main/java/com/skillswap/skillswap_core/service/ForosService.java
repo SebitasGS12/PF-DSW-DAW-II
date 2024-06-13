@@ -29,11 +29,11 @@ public class ForosService {
         return  refo.findById(id).orElseThrow();
     }
 
-    public void saveForos(Foros foros) {
+    public Foros saveForos(Foros foros) {
         if (foros.getForoId() == null ){
             foros.setForoId(ultimoId());
         }
-        refo.save(foros);
+        return refo.save(foros);
     }
     public void delteForosById(Integer id) {
         refo.deleteById(id);
