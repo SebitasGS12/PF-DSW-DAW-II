@@ -29,11 +29,11 @@ public class NotificacionesService {
         return  renot.findById(id).orElseThrow();
     }
 
-    public void saveNotificaciones(Notificaciones notificaciones) {
+    public Notificaciones saveNotificaciones(Notificaciones notificaciones) {
         if (notificaciones.getNotificacionesId() == null ){
             notificaciones.setNotificacionesId(ultimoId());
         }
-        renot.save(notificaciones);
+        return renot.save(notificaciones);
     }
     public void delteNotificacionesById(Integer id) {
         renot.deleteById(id);

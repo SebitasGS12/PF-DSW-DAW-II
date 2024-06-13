@@ -45,11 +45,11 @@ public class SesionService {
         return  reses.findById(id).orElseThrow();
     }
 
-    public void saveSesion(Sesion sesion) {
+    public Sesion saveSesion(Sesion sesion) {
         if (sesion.getSesionId() == null ){
             sesion.setSesionId(ultimoId());
         }
-        reses.save(sesion);
+        return reses.save(sesion);
     }
     public void deleteSesionById(Integer id) {
         reses.deleteById(id);

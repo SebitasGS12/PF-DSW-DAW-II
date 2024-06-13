@@ -29,11 +29,11 @@ public class PerfilService {
         return  reper.findById(id).orElseThrow();
     }
 
-    public void savePerfil(Perfil perfil) {
+    public Perfil savePerfil(Perfil perfil) {
         if (perfil.getPerfilID() == null ){
             perfil.setPerfilID(ultimoId());
         }
-        reper.save(perfil);
+        return reper.save(perfil);
     }
     public void deltePerfilById(Integer id) {
         reper.deleteById(id);

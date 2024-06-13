@@ -31,11 +31,11 @@ public class UsuarioService {
         return  repo.findById(id).orElseThrow();
     }
 
-    public void saveUsuario(Usuario usuario) {
+    public Usuario saveUsuario(Usuario usuario) {
         if (usuario.getUsuarioId() == null ){
             usuario.setUsuarioId(ultimoId());
         }
-        repo.save(usuario);
+        return repo.save(usuario);
     }
 
     public void delteUsuarioById(Integer id) {
