@@ -29,11 +29,11 @@ public class VotosService {
         return  revot.findById(id).orElseThrow();
     }
 
-    public void saveVotos(Votos votos) {
+    public Votos saveVotos(Votos votos) {
         if (votos.getVotoId() == null ){
             votos.setVotoId(ultimoId());
         }
-        revot.save(votos);
+        return revot.save(votos);
     }
     public void delteVotosById(Integer id) {
         revot.deleteById(id);

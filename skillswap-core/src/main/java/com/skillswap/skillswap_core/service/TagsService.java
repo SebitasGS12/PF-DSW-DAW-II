@@ -30,11 +30,11 @@ public class TagsService {
         return  retags.findById(id).orElseThrow();
     }
 
-    public void saveTags(Tags tags) {
+    public Tags saveTags(Tags tags) {
         if (tags.getTagId() == null ){
             tags.setTagId(ultimoId());
         }
-        retags.save(tags);
+       return retags.save(tags);
     }
     public void delteTagsById(Integer id) {
         retags.deleteById(id);

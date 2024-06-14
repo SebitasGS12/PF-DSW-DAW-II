@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/entity/Usuario.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1718218848143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718219377802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \r\n     @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Amistades>  amistades = new ArrayList<>();\r\n \r\n-\r\n+    @JsonI\r\n     @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Mensajes>  mensajes = new ArrayList<>();\r\n \r\n     @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n"
+                },
+                {
+                    "date": 1718219383159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n import java.util.ArrayList;\r\n import java.sql.Date;\r\n import java.util.List;\r\n \r\n+import com.fasterxml.jackson.annotation.JsonIgnore;\r\n+\r\n import jakarta.persistence.CascadeType;\r\n import jakarta.persistence.Entity;\r\n import jakarta.persistence.GeneratedValue;\r\n import jakarta.persistence.GenerationType;\r\n@@ -36,12 +38,13 @@\n \r\n     @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Amistades>  amistades = new ArrayList<>();\r\n \r\n-    @JsonI\r\n+    @JsonIgnore\r\n     @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Mensajes>  mensajes = new ArrayList<>();\r\n \r\n+    @JsonIgnore\r\n     @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Notificaciones>  notificaciones = new ArrayList<>();\r\n     \r\n     //TODO AGREGAR NULL AL ELIMINAR\r\n"
+                },
+                {
+                    "date": 1718219390361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,9 @@\n     @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Notificaciones>  notificaciones = new ArrayList<>();\r\n     \r\n     //TODO AGREGAR NULL AL ELIMINAR\r\n+    @JsonIgnore\r\n     @OneToMany(mappedBy = \"obj_Usuario\" )\r\n     private List<Discusiones>  discusiones = new ArrayList<>();\r\n     \r\n     //TODO AGREGAR NULL AL ELIMINAR\r\n"
+                },
+                {
+                    "date": 1718219396176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,8 +56,9 @@\n     @JsonIgnore\r\n     @OneToMany(mappedBy = \"obj_Usuario\")\r\n     private List<Foros>  foros = new ArrayList<>();\r\n \r\n+    @JsonIgnore\r\n     @OneToOne(mappedBy = \"obj_Usuario\", cascade = CascadeType.ALL, orphanRemoval = true)\r\n     private Perfil perfil;\r\n \r\n     @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n"
+                },
+                {
+                    "date": 1718219499029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,10 @@\n     //Las foraneas se llamaran de esta manera\r\n     @ManyToOne\r\n     @JoinColumn(name = \"tipoUsuarioID\")\r\n     private TipoUsuario obj_tipoUsuario;\r\n-\r\n+    \r\n+    @JsonIgnore\r\n     @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n     private List<Amistades>  amistades = new ArrayList<>();\r\n \r\n     @JsonIgnore\r\n"
+                }
+            ],
+            "date": 1718218848143,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\nimport java.util.ArrayList;\r\nimport java.sql.Date;\r\nimport java.util.List;\r\n\r\nimport jakarta.persistence.CascadeType;\r\nimport jakarta.persistence.Entity;\r\nimport jakarta.persistence.GeneratedValue;\r\nimport jakarta.persistence.GenerationType;\r\nimport jakarta.persistence.Id;\r\nimport jakarta.persistence.JoinColumn;\r\nimport jakarta.persistence.ManyToOne;\r\nimport jakarta.persistence.OneToMany;\r\nimport jakarta.persistence.OneToOne;\r\nimport jakarta.persistence.Table;\r\nimport lombok.Data;\r\n\r\n@Entity\r\n@Table(name = \"usuarios\")\r\n@Data\r\npublic class Usuario {\r\n\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Integer usuarioId;\r\n    private String correo;\r\n    private String contrasenia;\r\n    private Date fechaRegistro;\r\n    private Boolean estado;\r\n\r\n    //Las foraneas se llamaran de esta manera\r\n    @ManyToOne\r\n    @JoinColumn(name = \"tipoUsuarioID\")\r\n    private TipoUsuario obj_tipoUsuario;\r\n\r\n    @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n    private List<Amistades>  amistades = new ArrayList<>();\r\n\r\n\r\n    @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n    private List<Mensajes>  mensajes = new ArrayList<>();\r\n\r\n    @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n    private List<Notificaciones>  notificaciones = new ArrayList<>();\r\n    \r\n    //TODO AGREGAR NULL AL ELIMINAR\r\n    @OneToMany(mappedBy = \"obj_Usuario\" )\r\n    private List<Discusiones>  discusiones = new ArrayList<>();\r\n    \r\n    //TODO AGREGAR NULL AL ELIMINAR\r\n    @OneToMany(mappedBy = \"obj_Usuario\")\r\n    private List<Foros>  foros = new ArrayList<>();\r\n\r\n    @OneToOne(mappedBy = \"obj_Usuario\", cascade = CascadeType.ALL, orphanRemoval = true)\r\n    private Perfil perfil;\r\n\r\n    @OneToMany(mappedBy = \"obj_Usuario\",cascade =CascadeType.ALL,orphanRemoval = true )\r\n    private List<Respuestas>  respuestas = new ArrayList<>();\r\n}\r\n"
+        }
+    ]
+}

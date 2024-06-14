@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "respuestas")
@@ -25,6 +27,7 @@ public class Respuestas {
     @JoinColumn(name = "discucionesId")
     private Discusiones obj_Discuciones;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "obj_Respuesta",cascade =CascadeType.ALL,orphanRemoval = true )
     private List<Votos>  votos = new ArrayList<>();
 

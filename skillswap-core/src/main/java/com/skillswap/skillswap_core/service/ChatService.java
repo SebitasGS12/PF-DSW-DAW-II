@@ -28,14 +28,15 @@ public class ChatService {
          public Chat findById(int id){
         return  rechat.findById(id).orElseThrow();
     }
-     public void saveChat(Chat chat) {
+
+    public Chat saveChat(Chat chat) {
         if (chat.getChatId() == null ){
             chat.setChatId(ultimoId());
         }
-        rechat.save(chat);
+        return rechat.save(chat);
     }
  
-    public void delteAmistadesById(Integer id) {
+    public void deleteChatById(Integer id) {
         rechat.deleteById(id);
     }
     public Chat nullChat() {

@@ -25,16 +25,17 @@ public class AmistadesService {
     public List<Amistades> findAll(){
         return ream.findAll();
     }
-     public Amistades findById(int id){
+    public Amistades findById(int id){
         return  ream.findById(id).orElseThrow();
     }
 
-    public void saveAmistades(Amistades amistades) {
+    public Amistades saveAmistades(Amistades amistades) {
         if (amistades.getAmistadID() == null ){
             amistades.setAmistadID(ultimoId());
         }
-        ream.save(amistades);
+        return ream.save(amistades);
     }
+    
     public void delteAmistadesById(Integer id) {
         ream.deleteById(id);
     }

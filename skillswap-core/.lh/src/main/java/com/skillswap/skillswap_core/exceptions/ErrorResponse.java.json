@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/exceptions/ErrorResponse.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1718230155358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718230163033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n package com.skillswap.skillswap_core.exceptions;\r\n \r\n public class ErrorResponse {\r\n+    private int \r\n \r\n-\r\n }\r\n"
+                },
+                {
+                    "date": 1718230168886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n package com.skillswap.skillswap_core.exceptions;\r\n \r\n public class ErrorResponse {\r\n-    private int \r\n+    private int errorCode;\r\n+    private \r\n \r\n }\r\n"
+                }
+            ],
+            "date": 1718230155358,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.exceptions;\r\n\r\npublic class ErrorResponse {\r\n\r\n}\r\n"
+        }
+    ]
+}

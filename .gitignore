@@ -50,3 +50,6 @@ out-tsc/
 
 # Angular build cache
 .angular/
+
+# STS build cache 
+.metadata/

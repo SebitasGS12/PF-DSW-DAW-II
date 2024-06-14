@@ -29,11 +29,11 @@ public class ImagenService {
         return  reima.findById(id).orElseThrow();
     }
 
-    public void saveImagen(Imagen imagen) {
+    public Imagen saveImagen(Imagen imagen) {
         if (imagen.getImagenID() == null ){
             imagen.setImagenID(ultimoId());
         }
-        reima.save(imagen);
+        return reima.save(imagen);
     }
     public void delteImagenById(Integer id) {
         reima.deleteById(id);

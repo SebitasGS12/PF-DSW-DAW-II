@@ -6,6 +6,8 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tipoUsuario")
 @Data
@@ -19,6 +21,7 @@ public class TipoUsuario {
 
     //Si queremos que se realize una elminiacion por cascada usamos esto
     //@OneToMany(mappedBy = "obj_tipoUsuario",cascade =CascadeType.ALL,orphanRemoval = true )
+    @JsonIgnore
     @OneToMany(mappedBy = "obj_tipoUsuario")
     private List<Usuario>  usuarios = new ArrayList<>();
     //SI NO QUEREMOS ESO
