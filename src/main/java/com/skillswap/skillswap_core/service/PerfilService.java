@@ -2,6 +2,7 @@ package com.skillswap.skillswap_core.service;
 
 import java.util.List;
 
+import com.skillswap.skillswap_core.entity.Usuario;
 import org.springframework.stereotype.Service;
 
 import com.skillswap.skillswap_core.entity.Perfil;
@@ -47,5 +48,14 @@ public class PerfilService {
         Perfil perfil = new Perfil();
         perfil.setPerfilID(ultimoId());
         return perfil;
+    }
+
+    public void crearPeril(Usuario usuario) {
+        Perfil nuevoPerfil = newPerfil();
+
+        nuevoPerfil.setObj_Usuario(usuario);
+
+
+
     }
 }
