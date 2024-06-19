@@ -29,7 +29,6 @@ public class SesionService {
         reses.save(newSesion(usuario));
     }
     public Sesion getSesion(){
-
         return findAll().stream().findFirst().orElse(nullSesion());
     }
 

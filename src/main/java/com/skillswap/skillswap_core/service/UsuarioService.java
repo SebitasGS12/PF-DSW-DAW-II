@@ -31,6 +31,11 @@ public class UsuarioService {
         return  repo.findById(id).orElseThrow();
     }
 
+    public Usuario findByUserAndPass(String correo,String password){
+        return  findAll().stream().filter(
+            usuario -> usuario.getContrasenia().equals(password) && usuario.getCorreo().equals(correo))
+            .findFirst().orElseThrow();
+    }
     public Usuario saveUsuario(Usuario usuario) {
         if (usuario.getUsuarioId() == null ){
             usuario.setUsuarioId(ultimoId());

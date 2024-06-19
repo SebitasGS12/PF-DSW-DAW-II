@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/service/DiscusionesTagsService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1718504552449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718504566813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,17 +4,17 @@\n \r\n import org.springframework.stereotype.Service;\r\n \r\n import com.skillswap.skillswap_core.entity.Discusiones;\r\n-import com.skillswap.skillswap_core.repository.IDiscucionesTags;\r\n+import com.skillswap.skillswap_core.repository.IDiscucionesTagsRepository;\r\n import com.skillswap.skillswap_core.repository.IDiscusionesRepository;\r\n \r\n import lombok.AllArgsConstructor;\r\n \r\n @Service\r\n @AllArgsConstructor\r\n public class DiscusionesTagsService {\r\n-          private final IDiscucionesTags redis;\r\n+          private final IDiscucionesTagsRepository redis;\r\n \r\n     public int ultimoId(){\r\n         List<Discusiones> lista = redis.findAll();\r\n         if (lista.size() == 0 ) {\r\n"
+                },
+                {
+                    "date": 1718504577424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,52 @@\n+package com.skillswap.skillswap_core.service;\r\n+\r\n+import java.util.List;\r\n+\r\n+import org.springframework.stereotype.Service;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Discusiones;\r\n+import com.skillswap.skillswap_core.repository.IDiscucionesTagsRepository;\r\n+import com.skillswap.skillswap_core.repository.IDiscusionesRepository;\r\n+\r\n+import lombok.AllArgsConstructor;\r\n+\r\n+@Service\r\n+@AllArgsConstructor\r\n+public class DiscusionesTagsService {\r\n+          private final IDiscucionesTagsRepository redis;\r\n+\r\n+    public int ultimoId(){\r\n+        List<DiscusionesT> lista = redis.findAll();\r\n+        if (lista.size() == 0 ) {\r\n+            return 1;\r\n+        }\r\n+        return lista.get(lista.size()-1).getDiscusionesId()+1 ;\r\n+    }\r\n+\r\n+    public List<Discusiones> findAll(){\r\n+        return redis.findAll();\r\n+    }\r\n+            public Discusiones findById(int id){\r\n+        return  redis.findById(id).orElseThrow();\r\n+    }\r\n+\r\n+    public Discusiones saveDiscusiones(Discusiones discusiones) {\r\n+        if (discusiones.getDiscusionesId() == null ){\r\n+            discusiones.setDiscusionesId(ultimoId());\r\n+        }\r\n+        return redis.save(discusiones);\r\n+    }\r\n+    public void delteDiscusionesById(Integer id) {\r\n+        redis.deleteById(id);\r\n+    }\r\n+    public Discusiones nullDiscusiones() {\r\n+        Discusiones discusiones = new Discusiones();\r\n+        discusiones.setDiscusionesId(null);\r\n+        return discusiones;\r\n+    }\r\n+    public Discusiones newDiscusiones() {\r\n+        Discusiones discusiones = new Discusiones();\r\n+        discusiones.setDiscusionesId(ultimoId());\r\n+        return discusiones;\r\n+    }\r\n+}\r\n"
+                }
+            ],
+            "date": 1718504552449,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\nimport java.util.List;\r\n\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.skillswap.skillswap_core.entity.Discusiones;\r\nimport com.skillswap.skillswap_core.repository.IDiscusionesRepository;\r\n\r\nimport lombok.AllArgsConstructor;\r\n\r\n@Service\r\n@AllArgsConstructor\r\npublic class DiscusionesTagsService {\r\n          private final ID redis;\r\n\r\n    public int ultimoId(){\r\n        List<Discusiones> lista = redis.findAll();\r\n        if (lista.size() == 0 ) {\r\n            return 1;\r\n        }\r\n        return lista.get(lista.size()-1).getDiscusionesId()+1 ;\r\n    }\r\n\r\n    public List<Discusiones> findAll(){\r\n        return redis.findAll();\r\n    }\r\n            public Discusiones findById(int id){\r\n        return  redis.findById(id).orElseThrow();\r\n    }\r\n\r\n    public Discusiones saveDiscusiones(Discusiones discusiones) {\r\n        if (discusiones.getDiscusionesId() == null ){\r\n            discusiones.setDiscusionesId(ultimoId());\r\n        }\r\n        return redis.save(discusiones);\r\n    }\r\n    public void delteDiscusionesById(Integer id) {\r\n        redis.deleteById(id);\r\n    }\r\n    public Discusiones nullDiscusiones() {\r\n        Discusiones discusiones = new Discusiones();\r\n        discusiones.setDiscusionesId(null);\r\n        return discusiones;\r\n    }\r\n    public Discusiones newDiscusiones() {\r\n        Discusiones discusiones = new Discusiones();\r\n        discusiones.setDiscusionesId(ultimoId());\r\n        return discusiones;\r\n    }\r\n}\r\n"
+        }
+    ]
+}

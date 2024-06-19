@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/service/UsuarioService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1718762596437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718762608785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n         //Si lo encuentra devolvera el producto , sino generara una exception\r\n         return  repo.findById(id).orElseThrow();\r\n     }\r\n \r\n-    public Usuario findBy\r\n+    public Usuario findByUserAndPass(String correo,String password){}\r\n     public Usuario saveUsuario(Usuario usuario) {\r\n         if (usuario.getUsuarioId() == null ){\r\n             usuario.setUsuarioId(ultimoId());\r\n         }\r\n"
+                },
+                {
+                    "date": 1718762899434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         return  repo.findById(id).orElseThrow();\r\n     }\r\n \r\n     public Usuario findByUserAndPass(String correo,String password){\r\n-        return \r\n+        \r\n     }\r\n     public Usuario saveUsuario(Usuario usuario) {\r\n         if (usuario.getUsuarioId() == null ){\r\n             usuario.setUsuarioId(ultimoId());\r\n"
+                },
+                {
+                    "date": 1718762928592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,11 @@\n         return  repo.findById(id).orElseThrow();\r\n     }\r\n \r\n     public Usuario findByUserAndPass(String correo,String password){\r\n-        \r\n-        \r\n+        return  repo.\r\n \r\n+\r\n     }\r\n     public Usuario saveUsuario(Usuario usuario) {\r\n         if (usuario.getUsuarioId() == null ){\r\n             usuario.setUsuarioId(ultimoId());\r\n"
+                }
+            ],
+            "date": 1718762596437,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\nimport java.util.List;\r\n\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.skillswap.skillswap_core.entity.Usuario;\r\nimport com.skillswap.skillswap_core.repository.IUsuarioRepository;\r\nimport lombok.AllArgsConstructor;\r\n\r\n@Service\r\n@AllArgsConstructor\r\npublic class UsuarioService {\r\n\r\n    private final IUsuarioRepository repo;\r\n\r\n    public int ultimoId(){\r\n        List<Usuario> lista = repo.findAll();\r\n        if (lista.size() == 0 ) {\r\n            return 1;\r\n        }\r\n        return lista.get(lista.size()-1).getUsuarioId()+1 ;\r\n    }\r\n\r\n    public List<Usuario> findAll(){\r\n        return repo.findAll();\r\n    }\r\n\r\n    public Usuario findById(int id){\r\n        //Si lo encuentra devolvera el producto , sino generara una exception\r\n        return  repo.findById(id).orElseThrow();\r\n    }\r\n\r\n    public Usuario findBy\r\n    public Usuario saveUsuario(Usuario usuario) {\r\n        if (usuario.getUsuarioId() == null ){\r\n            usuario.setUsuarioId(ultimoId());\r\n        }\r\n        return repo.save(usuario);\r\n    }\r\n\r\n    public void delteUsuarioById(Integer id) {\r\n        repo.deleteById(id);\r\n    }\r\n\r\n    public Usuario nullUsuario() {\r\n        Usuario usuario = new Usuario();\r\n        usuario.setUsuarioId(null);\r\n        return usuario;\r\n    }\r\n    public Usuario newUsuario() {\r\n        Usuario usuario = new Usuario();\r\n        usuario.setUsuarioId(ultimoId());\r\n        return usuario;\r\n    }\r\n\r\n\r\n\r\n}\r\n"
+        }
+    ]
+}
