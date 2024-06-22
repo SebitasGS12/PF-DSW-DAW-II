@@ -36,6 +36,17 @@ public class HabilidadController {
         }
     }
 
+    @GetMapping("/categoria/{id}")
+    public ResponseEntity<List<Habilidad>> buscarPorCategoriaId(@PathVariable int id) {
+        try {
+            List<Habilidad> habilidad = service.findByCategoriaHabilidadId(id);
+            return ResponseEntity.ok(habilidad);
+        } catch (NoSuchElementException e) {
+            throw new ResourceNotFoundException("Habilidades con id : " + id);
+        }
+    }
+
+
     @PostMapping
     public ResponseEntity<Habilidad> guardar(@RequestBody Habilidad habilidad) {
         Habilidad nuevo = service.saveHabilidad(habilidad);
