@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1718764722811,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719621721272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,12 +16,9 @@\n \r\n     private final ISesionRepository reses;\r\n \r\n     public int ultimoId(){\r\n-        List<Sesion> lista = reses.findAll();\r\n-        if (lista.size() == 0 ) {\r\n-            return 1;\r\n-        }\r\n+\r\n         return lista.get(lista.size()-1).getSesionId()+1 ;\r\n     }\r\n \r\n     public void openSesion(Usuario usuario){\r\n"
+                },
+                {
+                    "date": 1719623122895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,18 +16,17 @@\n \r\n     private final ISesionRepository reses;\r\n \r\n     public int ultimoId(){\r\n-\r\n-        return lista.get(lista.size()-1).getSesionId()+1 ;\r\n+        return 1 ;\r\n     }\r\n \r\n     public void openSesion(Usuario usuario){\r\n         deleteAllSesion();\r\n         reses.save(newSesion(usuario));\r\n     }\r\n     public Sesion getSesion(){\r\n-        return findAll().stream().findFirst().orElse(nullSesion());\r\n+        return findAll().stream().findFirst().orElse(());\r\n     }\r\n \r\n     public void closeSesion(){\r\n         deleteAllSesion();\r\n"
                 }
             ],
             "date": 1718764722811,

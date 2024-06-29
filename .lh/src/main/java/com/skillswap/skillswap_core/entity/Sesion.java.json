@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/entity/Sesion.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1719619325258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719619336770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n import jakarta.persistence.Entity;\r\n+import jakarta.persistence.GeneratedValue;\r\n+import jakarta.persistence.GenerationType;\r\n import jakarta.persistence.Id;\r\n import jakarta.persistence.JoinColumn;\r\n import jakarta.persistence.ManyToOne;\r\n import jakarta.persistence.Table;\r\n@@ -12,8 +14,9 @@\n @Data\r\n public class Sesion {\r\n \r\n     @Id\r\n+    @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n     private Integer sesionId;\r\n \r\n     @ManyToOne\r\n     @JoinColumn(name = \"usuarioID\")\r\n"
+                }
+            ],
+            "date": 1719619325258,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\nimport jakarta.persistence.Entity;\r\nimport jakarta.persistence.GeneratedValue;\r\nimport jakarta.persistence.GenerationType;\r\nimport jakarta.persistence.Id;\r\nimport jakarta.persistence.JoinColumn;\r\nimport jakarta.persistence.ManyToOne;\r\nimport jakarta.persistence.Table;\r\nimport lombok.Data;\r\n\r\n@Entity\r\n@Table(name = \"sesion\")\r\n@Data\r\npublic class Sesion {\r\n\r\n    @Id\r\n    private Integer sesionId;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"usuarioID\")\r\n    private Usuario obj_Usuario;\r\n\r\n}\r\n"
+        }
+    ]
+}

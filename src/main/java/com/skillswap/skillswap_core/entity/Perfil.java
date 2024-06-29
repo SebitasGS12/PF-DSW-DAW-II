@@ -2,6 +2,8 @@ package com.skillswap.skillswap_core.entity;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,9 +19,9 @@ import lombok.Data;
 @Table(name = "perfil")
 @Data
 public class Perfil {
-    
+
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer perfilID;
 
     private String nombre;
@@ -39,8 +41,9 @@ public class Perfil {
 
     private String biografia;
 
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "usuarioID")
-    private Usuario obj_Usuario;
+    private Usuario usuario;
 
 }

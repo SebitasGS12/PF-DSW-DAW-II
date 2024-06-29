@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -57,10 +58,6 @@ public class Usuario {
     @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario")
     private List<Foros>  foros = new ArrayList<>();
-
-    @JsonIgnore
-    @OneToOne(mappedBy = "obj_Usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Perfil perfil;
 
     @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario",cascade =CascadeType.ALL,orphanRemoval = true )

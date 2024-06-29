@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/controller/UsuarioController.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1719615966141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719615999739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n      @GetMapping\r\n     public ResponseEntity<List<Usuario>> listarUsuario() {\r\n         return ResponseEntity.ok(usuarioService.findAll());\r\n     }\r\n-     @GetMapping(\"/{id}\")\r\n+    @GetMapping(\"/{id}\")\r\n     public ResponseEntity<Usuario> buscarUsuario(@PathVariable int id) {\r\n         try {\r\n             Usuario usuario = usuarioService.findById(id);\r\n             return ResponseEntity.ok(usuario);\r\n"
+                }
+            ],
+            "date": 1719615966141,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.controller;\r\n\r\nimport java.util.List;\r\nimport java.util.NoSuchElementException;\r\n\r\nimport org.springframework.http.HttpStatus;\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.web.bind.annotation.CrossOrigin;\r\nimport org.springframework.web.bind.annotation.DeleteMapping;\r\nimport org.springframework.web.bind.annotation.GetMapping;\r\nimport org.springframework.web.bind.annotation.PathVariable;\r\nimport org.springframework.web.bind.annotation.PostMapping;\r\nimport org.springframework.web.bind.annotation.PutMapping;\r\nimport org.springframework.web.bind.annotation.RequestBody;\r\nimport org.springframework.web.bind.annotation.RequestMapping;\r\nimport org.springframework.web.bind.annotation.RestController;\r\n\r\nimport com.skillswap.skillswap_core.constants.Estandares;\r\nimport com.skillswap.skillswap_core.entity.Usuario;\r\nimport com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;\r\nimport com.skillswap.skillswap_core.service.UsuarioService;\r\n\r\nimport lombok.RequiredArgsConstructor;\r\n\r\n@RestController\r\n@RequestMapping(Estandares.API + \"Usuario\")\r\n@RequiredArgsConstructor\r\n@CrossOrigin(Estandares.CROSS)\r\npublic class UsuarioController {\r\n    private final UsuarioService usuarioService;\r\n     @GetMapping\r\n    public ResponseEntity<List<Usuario>> listarUsuario() {\r\n        return ResponseEntity.ok(usuarioService.findAll());\r\n    }\r\n     @GetMapping(\"/{id}\")\r\n    public ResponseEntity<Usuario> buscarUsuario(@PathVariable int id) {\r\n        try {\r\n            Usuario usuario = usuarioService.findById(id);\r\n            return ResponseEntity.ok(usuario);\r\n        } catch (NoSuchElementException e) {\r\n            throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n        }\r\n    }\r\n     @PostMapping\r\n    public ResponseEntity<Usuario> guardarUsuario(@RequestBody Usuario usuario) {\r\n        Usuario nuevoUsuario = usuarioService.saveUsuario(usuario);\r\n        return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);\r\n    }\r\n    \r\n    \r\n    @PutMapping(\"/{id}\")\r\n    public ResponseEntity<Usuario> actualizarUsuario(@PathVariable int id, @RequestBody Usuario newUsuario) {\r\n        validarExistencia(id);\r\n        newUsuario.setUsuarioId(id);\r\n        Usuario updatedUsuario = usuarioService.saveUsuario(newUsuario);\r\n        return ResponseEntity.ok(updatedUsuario);\r\n    }\r\n    @DeleteMapping(\"/{id}\")\r\n    public ResponseEntity<String> eliminarUsuario(@PathVariable int id) {\r\n        validarExistencia(id);\r\n        usuarioService.delteUsuarioById(id);\r\n        String msg = \"Usuario Eliminado : \" + id;\r\n        return ResponseEntity.ok(msg);\r\n    }\r\n\r\n    private void validarExistencia(int id) {\r\n        try {\r\n            usuarioService.findById(id);\r\n        } catch (NoSuchElementException e) {\r\n            throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n        }\r\n    }\r\n}\r\n"
+        }
+    ]
+}

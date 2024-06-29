@@ -32,7 +32,7 @@ public class UsuarioController {
     public ResponseEntity<List<Usuario>> listarUsuario() {
         return ResponseEntity.ok(usuarioService.findAll());
     }
-     @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarUsuario(@PathVariable int id) {
         try {
             Usuario usuario = usuarioService.findById(id);
@@ -55,7 +55,7 @@ public class UsuarioController {
         Usuario updatedUsuario = usuarioService.saveUsuario(newUsuario);
         return ResponseEntity.ok(updatedUsuario);
     }
-     @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminarUsuario(@PathVariable int id) {
         validarExistencia(id);
         usuarioService.delteUsuarioById(id);

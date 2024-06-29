@@ -36,6 +36,7 @@ public class WebController {
         Usuario usuarioEncontrado = usuarioService.findByUserAndPass(usuario.getCorreo(), usuario.getContrasenia());
         if (usuarioEncontrado != null) {
             serviceSesion.openSesion(usuarioEncontrado);
+            System.out.println( usuario.toString());
             return ResponseEntity.ok(usuarioEncontrado);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
@@ -43,10 +44,10 @@ public class WebController {
     }
 
     @PostMapping(value = Estandares.PATH_CERRAR_SESION)
-    public ResponseEntity<Void> cerrarSesion(@RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> cerrarSesion(@RequestBody Usuario usuario) {
         try {
             serviceSesion.closeSesion();
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(usuario);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

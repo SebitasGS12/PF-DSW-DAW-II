@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/controller/SesionController.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1719623154735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719623161924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n         return ResponseEntity.ok(sesionService.findAll());\r\n     }\r\n \r\n     @GetMapping\r\n-    public ResponseEntity<List<Sesion>> listarSesion() {\r\n+    public ResponseEntity<Sesion> listarSesion() {\r\n         return ResponseEntity.ok(sesionService.findAll());\r\n     }\r\n \r\n      @GetMapping(\"/{id}\")\r\n"
+                },
+                {
+                    "date": 1719623170499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n         return ResponseEntity.ok(sesionService.findAll());\r\n     }\r\n \r\n     @GetMapping\r\n-    public ResponseEntity<Sesion> () {\r\n+    public ResponseEntity<Sesion> obtenerSesion() {\r\n         return ResponseEntity.ok(sesionService.findAll());\r\n     }\r\n \r\n      @GetMapping(\"/{id}\")\r\n"
+                }
+            ],
+            "date": 1719623154735,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.controller;\r\n\r\nimport java.util.List;\r\nimport java.util.NoSuchElementException;\r\n\r\nimport org.springframework.http.HttpStatus;\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.web.bind.annotation.CrossOrigin;\r\nimport org.springframework.web.bind.annotation.DeleteMapping;\r\nimport org.springframework.web.bind.annotation.GetMapping;\r\nimport org.springframework.web.bind.annotation.PathVariable;\r\nimport org.springframework.web.bind.annotation.PostMapping;\r\nimport org.springframework.web.bind.annotation.PutMapping;\r\nimport org.springframework.web.bind.annotation.RequestBody;\r\nimport org.springframework.web.bind.annotation.RequestMapping;\r\nimport org.springframework.web.bind.annotation.RestController;\r\n\r\nimport com.skillswap.skillswap_core.constants.Estandares;\r\nimport com.skillswap.skillswap_core.entity.Sesion;\r\nimport com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;\r\nimport com.skillswap.skillswap_core.service.SesionService;\r\n\r\nimport lombok.RequiredArgsConstructor;\r\n\r\n@RestController\r\n@RequestMapping(Estandares.API + \"Sesion\")\r\n@RequiredArgsConstructor\r\n@CrossOrigin(Estandares.CROSS)\r\npublic class SesionController {\r\n         private final SesionService sesionService;\r\n    @GetMapping\r\n    public ResponseEntity<List<Sesion>> listarSesion() {\r\n        return ResponseEntity.ok(sesionService.findAll());\r\n    }\r\n     @GetMapping(\"/{id}\")\r\n    public ResponseEntity<Sesion> buscarSesion(@PathVariable int id) {\r\n        try {\r\n            Sesion sesion = sesionService.findById(id);\r\n            return ResponseEntity.ok(sesion);\r\n        } catch (NoSuchElementException e) {\r\n            throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n        }\r\n    }\r\n     @PostMapping\r\n    public ResponseEntity<Sesion> guardarSesion(@RequestBody Sesion sesion) {\r\n        Sesion nuevoSesion = sesionService.saveSesion(sesion);\r\n        return new ResponseEntity<>(nuevoSesion, HttpStatus.CREATED);\r\n    }\r\n    \r\n    \r\n    @PutMapping(\"/{id}\")\r\n    public ResponseEntity<Sesion> actualizarSesion(@PathVariable int id, @RequestBody Sesion newSesion) {\r\n        validarExistencia(id);\r\n        newSesion.setSesionId(id);\r\n        Sesion updatedSesion = sesionService.saveSesion(newSesion);\r\n        return ResponseEntity.ok(updatedSesion);\r\n    }\r\n     @DeleteMapping(\"/{id}\")\r\n    public ResponseEntity<String> eliminarSesion(@PathVariable int id) {\r\n        validarExistencia(id);\r\n        sesionService.deleteSesionById(id);\r\n        String msg = \"Respuesta Eliminada : \" + id;\r\n        return ResponseEntity.ok(msg);\r\n    }\r\n\r\n    private void validarExistencia(int id) {\r\n        try {\r\n            sesionService.findById(id);\r\n        } catch (NoSuchElementException e) {\r\n            throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n        }\r\n    }\r\n}\r\n"
+        }
+    ]
+}
