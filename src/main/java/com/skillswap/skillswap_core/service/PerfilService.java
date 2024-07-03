@@ -5,6 +5,7 @@ import java.util.List;
 import com.skillswap.skillswap_core.entity.Usuario;
 import org.springframework.stereotype.Service;
 
+import com.skillswap.skillswap_core.Util.Utils;
 import com.skillswap.skillswap_core.entity.Perfil;
 import com.skillswap.skillswap_core.repository.IPerfilRepository;
 
@@ -63,7 +64,12 @@ public class PerfilService {
     public void crearPeril(Usuario usuario) {
         Perfil nuevoPerfil = newPerfil();
         nuevoPerfil.setUsuario(usuario);
-        
+        nuevoPerfil.setApellido("");
+        nuevoPerfil.setBiografia("");
+        nuevoPerfil.setFechaNacimiento(Utils.getFechaHoy());
+        nuevoPerfil.setObj_imagenCabeceraId(null);
+        nuevoPerfil.setObj_imagenPerfilId(null);
+        nuevoPerfil.setTelefono("");
         reper.save(nuevoPerfil);
 
 

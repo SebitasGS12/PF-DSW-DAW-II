@@ -12,12 +12,12 @@ public class ChatUsuario {
     private Integer chatUsuarioId;
 
     @ManyToOne
-    @JoinColumn(name = "usuarioId")
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     
     @ManyToOne
-    @JoinColumn(name = "amigoId")
+    @JoinColumn(name = "amigo_id")
     private Usuario amigo;
 
     @ManyToOne

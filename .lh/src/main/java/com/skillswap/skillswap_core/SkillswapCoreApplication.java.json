@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/SkillswapCoreApplication.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1720048711124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1720048774831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,6 @@\n \r\n \tpublic static void main(String[] args) {\r\n \t\tSpringApplication.run(SkillswapCoreApplication.class, args);\r\n \t}\r\n--\r\n+\r\n }\r\n"
+                }
+            ],
+            "date": 1720048711124,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core;\r\n\r\nimport org.springframework.boot.SpringApplication;\r\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\r\n\r\n@SpringBootApplication\r\npublic class SkillswapCoreApplication {\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\tSpringApplication.run(SkillswapCoreApplication.class, args);\r\n\t}\r\n-\r\n}\r\n"
+        }
+    ]
+}

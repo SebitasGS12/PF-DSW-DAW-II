@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1719762654313,
@@ -28,6 +28,10 @@
                 {
                     "date": 1719768086561,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n     }\r\n     @GetMapping(\"/usuario/{id}\")\r\n     public ResponseEntity<ChatUsuario> buscarChatUsuarioByUsuario(@PathVariable int id) {\r\n         try {\r\n-            ChatUsuario chatUsuario = service.findByUsuario(usuarioService.findById(id));\r\n+            ChatUsuario chatUsuario = service.findByUsuarioAmigo(usuarioService.findById(id));\r\n             return ResponseEntity.ok(chatUsuario);\r\n         } catch (NoSuchElementException e) {\r\n             throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n         }\r\n"
+                },
+                {
+                    "date": 1720037584493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,12 @@\n             throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n         }\r\n     }\r\n     @GetMapping(\"/usuario/{usuarioId}/amigo/{amigoId}\")\r\n-    public ResponseEntity<ChatUsuario> buscarChatUsuarioByUsuario(@PathVariable int id) {\r\n+    public ResponseEntity<ChatUsuario> buscarChatUsuarioByUsuario(\r\n+        @PathVariable Long usuarioId,\r\n+        @PathVariable Long amigoId)     \r\n+    {\r\n         try {\r\n             ChatUsuario chatUsuario = service.findByUsuarioAmigo(usuarioService.findById(id));\r\n             return ResponseEntity.ok(chatUsuario);\r\n         } catch (NoSuchElementException e) {\r\n"
                 }
             ],
             "date": 1719762654313,

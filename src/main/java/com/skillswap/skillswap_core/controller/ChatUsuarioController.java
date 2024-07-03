@@ -39,14 +39,19 @@ private final ChatUsuarioService service;
             throw new ResourceNotFoundException("Objeto con id : " + id);
         }
     }
-    @GetMapping("/usuario/{id}")
-    public ResponseEntity<ChatUsuario> buscarChatUsuarioByUsuario(@PathVariable int id) {
-        try {
-            ChatUsuario chatUsuario = service.findByUsuarioAmigo(usuarioService.findById(id));
-            return ResponseEntity.ok(chatUsuario);
-        } catch (NoSuchElementException e) {
-            throw new ResourceNotFoundException("Objeto con id : " + id);
+    @GetMapping("/usuario/{usuarioId}/amigo/{amigoId}")
+    public ResponseEntity<ChatUsuario> buscarChatUsuarioByUsuario(
+        @PathVariable int usuarioId,
+        @PathVariable int amigoId)     
+    {
+
+        ChatUsuario chatUsuario = service.obtenerChatUsuarioByUsuario(usuarioId, amigoId);
+        if (chatUsuario != null) {
+            return new ResponseEntity<>(chatUsuario, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
     }
 
 

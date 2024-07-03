@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.skillswap.skillswap_core.entity.Amistades;
 import com.skillswap.skillswap_core.entity.Chat;
 import com.skillswap.skillswap_core.entity.ChatUsuario;
 import com.skillswap.skillswap_core.entity.Notificaciones;
@@ -54,13 +55,29 @@ public class ChatUsuarioService {
 
 
     public ChatUsuario getChatUsuarioOfChatAndUser(Chat chat , Usuario emisor){
-        
         return rechus.findByUsuarioAndChat(emisor, chat);
 
     }
 
     public ChatUsuario findByUsuarioAmigo(Usuario usuario) {
         return rechus.findByAmigo(usuario);
+    }
+
+    public void saveChatUsuarioWithAmistadAndChat(Amistades amistades, Chat chat) {
+       
+        ChatUsuario chatUsuario = newChatUsuario();
+        
+        chatUsuario.setAmigo(amistades.getAmigo());
+        chatUsuario.setUsuario(amistades.getUsuario());
+        chatUsuario.setChat(chat);
+
+        rechus.save(chatUsuario);
+    }
+
+    public ChatUsuario obtenerChatUsuarioByUsuario(int usuarioId, int amigoId) {
+    
+        return rechus.findByUsuario_usuarioIdAndAmigo_usuarioId(usuarioId,amigoId);
+    
     }
 
 }

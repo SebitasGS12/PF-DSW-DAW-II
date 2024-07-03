@@ -14,4 +14,6 @@ public interface IChatUsuarioRepository extends JpaRepository <ChatUsuario, Inte
 
     ChatUsuario findByUsuarioAndChat(Usuario usuario,Chat chat);
 
+    ChatUsuario findByUsuario_usuarioIdAndAmigo_usuarioId(int usuarioId, int amigoId);
+
 }

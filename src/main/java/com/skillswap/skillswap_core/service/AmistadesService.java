@@ -36,6 +36,10 @@ public class AmistadesService {
         }
         return ream.save(amistades);
     }
+
+    public List<Amistades> registrarAmistades(List<Amistades> amistades) {
+        return ream.saveAll(amistades);
+    }
     
     public void delteAmistadesById(Integer id) {
         ream.deleteById(id);
