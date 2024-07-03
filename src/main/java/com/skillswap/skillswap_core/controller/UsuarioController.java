@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skillswap.skillswap_core.constants.Estandares;
 import com.skillswap.skillswap_core.entity.Usuario;
+import com.skillswap.skillswap_core.entity.Perfil;
 import com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;
 import com.skillswap.skillswap_core.service.UsuarioService;
+import com.skillswap.skillswap_core.service.PerfilService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,11 +30,12 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin(Estandares.CROSS)
 public class UsuarioController {
     private final UsuarioService usuarioService;
+    private final PerfilService perfilService;
      @GetMapping
     public ResponseEntity<List<Usuario>> listarUsuario() {
         return ResponseEntity.ok(usuarioService.findAll());
     }
-     @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarUsuario(@PathVariable int id) {
         try {
             Usuario usuario = usuarioService.findById(id);
@@ -41,9 +44,10 @@ public class UsuarioController {
             throw new ResourceNotFoundException("Objeto con id : " + id);
         }
     }
-     @PostMapping
+    @PostMapping
     public ResponseEntity<Usuario> guardarUsuario(@RequestBody Usuario usuario) {
         Usuario nuevoUsuario = usuarioService.saveUsuario(usuario);
+
         return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
     }
     
@@ -55,8 +59,8 @@ public class UsuarioController {
         Usuario updatedUsuario = usuarioService.saveUsuario(newUsuario);
         return ResponseEntity.ok(updatedUsuario);
     }
-     @DeleteMapping("/{id}")
-    public ResponseEntity<String> elimiinarUsuario(@PathVariable int id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> eliminarUsuario(@PathVariable int id) {
         validarExistencia(id);
         usuarioService.delteUsuarioById(id);
         String msg = "Usuario Eliminado : " + id;

@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/entity/ChatUsuario.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1719762741921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719767757464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,25 @@\n+package com.skillswap.skillswap_core.entity;\r\n+\r\n+import jakarta.persistence.*;\r\n+import lombok.Data;\r\n+\r\n+@Entity\r\n+@Table(name = \"chatUsuario\")\r\n+@Data\r\n+public class ChatUsuario {\r\n+    @Id\r\n+    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n+    private Integer chatUsuarioId;\r\n+\r\n+    @ManyToOne\r\n+    @JoinColumn(name = \"usuarioId\")\r\n+    private Usuario usuario;\r\n+\r\n+    @ManyToOne\r\n+    @JoinColumn(name = \"usuarioId\")\r\n+    private Usuario usuario;\r\n+\r\n+    @ManyToOne\r\n+    @JoinColumn(name = \"chatId\")\r\n+    private Chat obj_chat;\r\n+}\r\n"
+                },
+                {
+                    "date": 1719767765058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,12 @@\n     @ManyToOne\r\n     @JoinColumn(name = \"usuarioId\")\r\n     private Usuario usuario;\r\n \r\n+    \r\n     @ManyToOne\r\n-    @JoinColumn(name = \"usuarioId\")\r\n-    private Usuario usuario;\r\n+    @JoinColumn(name = \"amigoId\")\r\n+    private Usuario obj_Amigo;\r\n \r\n     @ManyToOne\r\n     @JoinColumn(name = \"chatId\")\r\n     private Chat obj_chat;\r\n"
+                },
+                {
+                    "date": 1719768057833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,31 +17,10 @@\n \r\n     \r\n     @ManyToOne\r\n     @JoinColumn(name = \"amigoId\")\r\n-    private Usuario obj_Amigo;\r\n+    private Usuario amigo;\r\n \r\n     @ManyToOne\r\n     @JoinColumn(name = \"chatId\")\r\n     private Chat obj_chat;\r\n }\r\n-package com.skillswap.skillswap_core.entity;\r\n-\r\n-import jakarta.persistence.*;\r\n-import lombok.Data;\r\n-\r\n-@Entity\r\n-@Table(name = \"chatUsuario\")\r\n-@Data\r\n-public class ChatUsuario {\r\n-    @Id\r\n-    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n-    private Integer chatUsuarioId;\r\n-\r\n-    @ManyToOne\r\n-    @JoinColumn(name = \"usuarioId\")\r\n-    private Usuario usuario;\r\n-\r\n-    @ManyToOne\r\n-    @JoinColumn(name = \"chatId\")\r\n-    private Chat obj_chat;\r\n-}\r\n"
+                },
+                {
+                    "date": 1719787323365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,6 +21,6 @@\n     private Usuario amigo;\r\n \r\n     @ManyToOne\r\n     @JoinColumn(name = \"chatId\")\r\n-    private Chat obj_chat;\r\n+    private Chat chat;\r\n }\r\n"
+                },
+                {
+                    "date": 1720037724552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n     private Integer chatUsuarioId;\r\n \r\n     @ManyToOne\r\n-    @JoinColumn(name = \"usuarioId\")\r\n+    @JoinColumn(name = \"usuario_Id\")\r\n     private Usuario usuario;\r\n \r\n     \r\n     @ManyToOne\r\n"
+                },
+                {
+                    "date": 1720037732679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n     private Integer chatUsuarioId;\r\n \r\n     @ManyToOne\r\n-    @JoinColumn(name = \"usuario_Id\")\r\n+    @JoinColumn(name = \"usuario_id\")\r\n     private Usuario usuario;\r\n \r\n     \r\n     @ManyToOne\r\n"
+                }
+            ],
+            "date": 1719762741921,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.Data;\r\n\r\n@Entity\r\n@Table(name = \"chatUsuario\")\r\n@Data\r\npublic class ChatUsuario {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Integer chatUsuarioId;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"usuarioId\")\r\n    private Usuario usuario;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"chatId\")\r\n    private Chat obj_chat;\r\n}\r\n"
+        }
+    ]
+}

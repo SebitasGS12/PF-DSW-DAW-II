@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/service/PerfilService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1719627474082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719627482553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,10 +50,11 @@\n         return perfil;\r\n     }\r\n \r\n     public Perfil findByIdUsuario(int id) {\r\n-        // TODO Auto-generated method stub\r\n-        throw new UnsupportedOperationException(\"Unimplemented method 'findByIdUsuario'\");\r\n+        \r\n+\r\n+\r\n     }\r\n \r\n     public void crearPeril(Usuario usuario) {\r\n         Perfil nuevoPerfil = newPerfil();\r\n"
+                },
+                {
+                    "date": 1719627536568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,69 @@\n+package com.skillswap.skillswap_core.service;\r\n+\r\n+import java.util.List;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Usuario;\r\n+import org.springframework.stereotype.Service;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Perfil;\r\n+import com.skillswap.skillswap_core.repository.IPerfilRepository;\r\n+\r\n+import lombok.AllArgsConstructor;\r\n+\r\n+@Service\r\n+@AllArgsConstructor\r\n+public class PerfilService {\r\n+      private final IPerfilRepository reper;\r\n+\r\n+    public int ultimoId(){\r\n+        List<Perfil> lista = reper.findAll();\r\n+        if (lista.size() == 0 ) {\r\n+            return 1;\r\n+        }\r\n+        return lista.get(lista.size()-1).getPerfilID()+1 ;\r\n+    }\r\n+\r\n+    public List<Perfil> findAll(){\r\n+        return reper.findAll();\r\n+    }\r\n+    public Perfil findById(int id){\r\n+        return  reper.findById(id).orElseThrow();\r\n+    }\r\n+\r\n+    public Perfil savePerfil(Perfil perfil) {\r\n+        if (perfil.getPerfilID() == null ){\r\n+            perfil.setPerfilID(ultimoId());\r\n+        }\r\n+        return reper.save(perfil);\r\n+    }\r\n+    public void deltePerfilById(Integer id) {\r\n+        reper.deleteById(id);\r\n+    }\r\n+    public Perfil nullPerfil() {\r\n+        Perfil perfil = new Perfil();\r\n+        perfil.setPerfilID(null);\r\n+        return perfil;\r\n+    }\r\n+    public Perfil newPerfil() {\r\n+        Perfil perfil = new Perfil();\r\n+        perfil.setPerfilID(ultimoId());\r\n+        return perfil;\r\n+    }\r\n+\r\n+    public Perfil findByIdUsuario(int id) {\r\n+        return fin\r\n+\r\n+\r\n+    }\r\n+\r\n+    public void crearPeril(Usuario usuario) {\r\n+        Perfil nuevoPerfil = newPerfil();\r\n+\r\n+        nuevoPerfil.setObj_Usuario(usuario);\r\n+\r\n+\r\n+\r\n+    }\r\n+\r\n+\r\n+}\r\n"
+                }
+            ],
+            "date": 1719627474082,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\nimport java.util.List;\r\n\r\nimport com.skillswap.skillswap_core.entity.Usuario;\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.skillswap.skillswap_core.entity.Perfil;\r\nimport com.skillswap.skillswap_core.repository.IPerfilRepository;\r\n\r\nimport lombok.AllArgsConstructor;\r\n\r\n@Service\r\n@AllArgsConstructor\r\npublic class PerfilService {\r\n      private final IPerfilRepository reper;\r\n\r\n    public int ultimoId(){\r\n        List<Perfil> lista = reper.findAll();\r\n        if (lista.size() == 0 ) {\r\n            return 1;\r\n        }\r\n        return lista.get(lista.size()-1).getPerfilID()+1 ;\r\n    }\r\n\r\n    public List<Perfil> findAll(){\r\n        return reper.findAll();\r\n    }\r\n    public Perfil findById(int id){\r\n        return  reper.findById(id).orElseThrow();\r\n    }\r\n\r\n    public Perfil savePerfil(Perfil perfil) {\r\n        if (perfil.getPerfilID() == null ){\r\n            perfil.setPerfilID(ultimoId());\r\n        }\r\n        return reper.save(perfil);\r\n    }\r\n    public void deltePerfilById(Integer id) {\r\n        reper.deleteById(id);\r\n    }\r\n    public Perfil nullPerfil() {\r\n        Perfil perfil = new Perfil();\r\n        perfil.setPerfilID(null);\r\n        return perfil;\r\n    }\r\n    public Perfil newPerfil() {\r\n        Perfil perfil = new Perfil();\r\n        perfil.setPerfilID(ultimoId());\r\n        return perfil;\r\n    }\r\n\r\n    public void crearPeril(Usuario usuario) {\r\n        Perfil nuevoPerfil = newPerfil();\r\n\r\n        nuevoPerfil.setObj_Usuario(usuario);\r\n\r\n\r\n\r\n    }\r\n\r\n    public Perfil findByIdUsuario(int id) {\r\n        // TODO Auto-generated method stub\r\n        throw new UnsupportedOperationException(\"Unimplemented method 'findByIdUsuario'\");\r\n    }\r\n}\r\n"
+        }
+    ]
+}

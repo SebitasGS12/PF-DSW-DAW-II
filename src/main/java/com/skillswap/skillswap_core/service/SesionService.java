@@ -17,11 +17,7 @@ public class SesionService {
     private final ISesionRepository reses;
 
     public int ultimoId(){
-        List<Sesion> lista = reses.findAll();
-        if (lista.size() == 0 ) {
-            return 1;
-        }
-        return lista.get(lista.size()-1).getSesionId()+1 ;
+        return 1 ;
     }
 
     public void openSesion(Usuario usuario){
@@ -29,8 +25,7 @@ public class SesionService {
         reses.save(newSesion(usuario));
     }
     public Sesion getSesion(){
-
-        return findAll().stream().findFirst().orElse(nullSesion());
+        return findAll().stream().findFirst().orElseThrow();
     }
 
     public void closeSesion(){

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/service/DiscucionesTagsService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1718504542431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1718504542431,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\nimport java.util.List;\r\n\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.skillswap.skillswap_core.entity.Discusiones;\r\nimport com.skillswap.skillswap_core.repository.IDiscusionesRepository;\r\n\r\nimport lombok.AllArgsConstructor;\r\n\r\n@Service\r\n@AllArgsConstructor\r\npublic class DiscusionesService {\r\n          private final IDiscusionesRepository redis;\r\n\r\n    public int ultimoId(){\r\n        List<Discusiones> lista = redis.findAll();\r\n        if (lista.size() == 0 ) {\r\n            return 1;\r\n        }\r\n        return lista.get(lista.size()-1).getDiscusionesId()+1 ;\r\n    }\r\n\r\n    public List<Discusiones> findAll(){\r\n        return redis.findAll();\r\n    }\r\n            public Discusiones findById(int id){\r\n        return  redis.findById(id).orElseThrow();\r\n    }\r\n\r\n    public Discusiones saveDiscusiones(Discusiones discusiones) {\r\n        if (discusiones.getDiscusionesId() == null ){\r\n            discusiones.setDiscusionesId(ultimoId());\r\n        }\r\n        return redis.save(discusiones);\r\n    }\r\n    public void delteDiscusionesById(Integer id) {\r\n        redis.deleteById(id);\r\n    }\r\n    public Discusiones nullDiscusiones() {\r\n        Discusiones discusiones = new Discusiones();\r\n        discusiones.setDiscusionesId(null);\r\n        return discusiones;\r\n    }\r\n    public Discusiones newDiscusiones() {\r\n        Discusiones discusiones = new Discusiones();\r\n        discusiones.setDiscusionesId(ultimoId());\r\n        return discusiones;\r\n    }\r\n}\r\n"
+        }
+    ]
+}

@@ -29,6 +29,12 @@ public class HabilidadService {
         return  reha.findById(id).orElseThrow();
     }
 
+    public List<Habilidad> findByCategoriaHabilidadId(int id){
+        return  reha.findAll().stream().filter(
+            h -> h.getObj_CategoriaHabilidad().getCategoriaHabilidadId().equals(id)
+        ).toList();
+    }
+
     public Habilidad saveHabilidad(Habilidad habilidad) {
         if (habilidad.getHabilidadId() == null ){
             habilidad.setHabilidadId(ultimoId());

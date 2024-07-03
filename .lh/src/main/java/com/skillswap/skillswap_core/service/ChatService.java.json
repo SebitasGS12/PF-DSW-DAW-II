@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/service/ChatService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1720036021143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1720036030638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,59 @@\n+package com.skillswap.skillswap_core.service;\r\n+\r\n+import java.util.List;\r\n+\r\n+import org.springframework.stereotype.Service;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Chat;\r\n+import com.skillswap.skillswap_core.repository.IChatRepository;\r\n+\r\n+import lombok.AllArgsConstructor;\r\n+\r\n+@Service\r\n+@AllArgsConstructor\r\n+public class ChatService {\r\n+        private final IChatRepository rechat;\r\n+\r\n+    public int ultimoId(){\r\n+        List<Chat> lista = rechat.findAll();\r\n+        if (lista.size() == 0 ) {\r\n+            return 1;\r\n+        }\r\n+        return lista.get(lista.size()-1).getChatId()+1 ;\r\n+    }\r\n+\r\n+    public List<Chat> findAll(){\r\n+        return rechat.findAll();\r\n+    }\r\n+         public Chat findById(int id){\r\n+        return  rechat.findById(id).orElseThrow();\r\n+    }\r\n+\r\n+    public Chat saveChat(Chat chat) {\r\n+        if (chat.getChatId() == null ){\r\n+            chat.setChatId(ultimoId());\r\n+        }\r\n+        return rechat.save(chat);\r\n+    }\r\n+ \r\n+    public void deleteChatById(Integer id) {\r\n+        rechat.deleteById(id);\r\n+    }\r\n+    public Chat nullChat() {\r\n+        Chat chat = new Chat();\r\n+        chat.setChatId(null);\r\n+        return chat;\r\n+    }\r\n+\r\n+    public Chat newChat() {\r\n+        Chat chat = new Chat();\r\n+        chat.setChatId(ultimoId());\r\n+        return chat;\r\n+    }\r\n+\r\n+    public Chat generarNuevoChat() {\r\n+       \r\n+        new\r\n+\r\n+    }\r\n+}\r\n"
+                },
+                {
+                    "date": 1720036036084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,8 @@\n     }\r\n \r\n     public Chat generarNuevoChat() {\r\n        \r\n-        newChat()\r\n+        Chat chat = newChat()\r\n \r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1720036044946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import java.util.List;\r\n \r\n import org.springframework.stereotype.Service;\r\n \r\n+import com.skillswap.skillswap_core.Util.Utils;\r\n import com.skillswap.skillswap_core.entity.Chat;\r\n import com.skillswap.skillswap_core.repository.IChatRepository;\r\n \r\n import lombok.AllArgsConstructor;\r\n@@ -53,8 +54,9 @@\n \r\n     public Chat generarNuevoChat() {\r\n        \r\n         Chat chat = newChat();\r\n-        chat.\r\n+        chat.setFechaCreacion(Utils.getFechaHoy());\r\n+        chat.setFechaCreacion(Utils.getFechaHoy());\r\n \r\n     }\r\n }\r\n"
+                }
+            ],
+            "date": 1720036021143,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\nimport java.util.List;\r\n\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.skillswap.skillswap_core.entity.Chat;\r\nimport com.skillswap.skillswap_core.repository.IChatRepository;\r\n\r\nimport lombok.AllArgsConstructor;\r\n\r\n@Service\r\n@AllArgsConstructor\r\npublic class ChatService {\r\n        private final IChatRepository rechat;\r\n\r\n    public int ultimoId(){\r\n        List<Chat> lista = rechat.findAll();\r\n        if (lista.size() == 0 ) {\r\n            return 1;\r\n        }\r\n        return lista.get(lista.size()-1).getChatId()+1 ;\r\n    }\r\n\r\n    public List<Chat> findAll(){\r\n        return rechat.findAll();\r\n    }\r\n         public Chat findById(int id){\r\n        return  rechat.findById(id).orElseThrow();\r\n    }\r\n\r\n    public Chat saveChat(Chat chat) {\r\n        if (chat.getChatId() == null ){\r\n            chat.setChatId(ultimoId());\r\n        }\r\n        return rechat.save(chat);\r\n    }\r\n \r\n    public void deleteChatById(Integer id) {\r\n        rechat.deleteById(id);\r\n    }\r\n    public Chat nullChat() {\r\n        Chat chat = new Chat();\r\n        chat.setChatId(null);\r\n        return chat;\r\n    }\r\n\r\n    public Chat newChat() {\r\n        Chat chat = new Chat();\r\n        chat.setChatId(ultimoId());\r\n        return chat;\r\n    }\r\n\r\n    public Chat generarNuevoChat() {\r\n        // TODO Auto-generated method stub\r\n        throw new UnsupportedOperationException(\"Unimplemented method 'generarNuevoChat'\");\r\n    }\r\n}\r\n"
+        }
+    ]
+}

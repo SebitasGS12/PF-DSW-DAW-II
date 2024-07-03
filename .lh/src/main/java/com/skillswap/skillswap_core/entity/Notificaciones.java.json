@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/entity/Notificaciones.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1719719192049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719786521813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,16 @@\n package com.skillswap.skillswap_core.entity;\r\n \r\n import jakarta.persistence.*;\r\n+import lombok.Builder;\r\n import lombok.Data;\r\n \r\n import java.sql.Date;\r\n \r\n @Entity\r\n @Table(name = \"notificaciones\")\r\n @Data\r\n+@Builder\r\n public class Notificaciones {\r\n     @Id\r\n     @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n     private Integer notificacionesId;\r\n"
+                },
+                {
+                    "date": 1719787051529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,12 @@\n @Table(name = \"notificaciones\")\r\n @Data\r\n @Builder\r\n public class Notificaciones {\r\n+    public Notificaciones() {\r\n+        //TODO Auto-generated constructor stub\r\n+    }\r\n+\r\n     @Id\r\n     @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n     private Integer notificacionesId;\r\n \r\n"
+                },
+                {
+                    "date": 1719787058953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,19 +2,18 @@\n \r\n import jakarta.persistence.*;\r\n import lombok.Builder;\r\n import lombok.Data;\r\n+import lombok.NoArgsConstructor;\r\n \r\n import java.sql.Date;\r\n \r\n @Entity\r\n @Table(name = \"notificaciones\")\r\n @Data\r\n @Builder\r\n+@NoArgsConstructor\r\n public class Notificaciones {\r\n-    public Notificaciones() {\r\n-        //TODO Auto-generated constructor stub\r\n-    }\r\n \r\n     @Id\r\n     @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n     private Integer notificacionesId;\r\n"
+                },
+                {
+                    "date": 1719787067800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,8 @@\n @Entity\r\n @Table(name = \"notificaciones\")\r\n @Data\r\n @Builder\r\n-@NoArgsConstructor\r\n public class Notificaciones {\r\n \r\n     @Id\r\n     @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n"
+                },
+                {
+                    "date": 1719788296090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,8 @@\n \r\n @Entity\r\n @Table(name = \"notificaciones\")\r\n @Data\r\n-@Builder\r\n public class Notificaciones {\r\n \r\n     @Id\r\n     @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n"
+                },
+                {
+                    "date": 1719961379064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,9 @@\n     @ManyToOne\r\n     @JoinColumn(name = \"usuarioID\")\r\n     private Usuario usuario;\r\n \r\n+    @ManyToOne\r\n+    @JoinColumn(name = \"usuarioID\")\r\n+    private Usuario usuario;\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1719961386076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,7 +30,7 @@\n     private Usuario usuario;\r\n \r\n     @ManyToOne\r\n     @JoinColumn(name = \"amigoID\")\r\n-    private Usuario usuario;\r\n+    private Usuario amigo;\r\n \r\n }\r\n"
+                }
+            ],
+            "date": 1719719192049,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.Data;\r\n\r\nimport java.sql.Date;\r\n\r\n@Entity\r\n@Table(name = \"notificaciones\")\r\n@Data\r\npublic class Notificaciones {\r\n    @Id\r\n    @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n    private Integer notificacionesId;\r\n\r\n    private String titulo;\r\n    private String contenido;\r\n    private Date fechaCreacion;\r\n    private Boolean leido;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"imagenId\")\r\n    private Imagen obj_imagenId;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"usuarioID\")\r\n    private Usuario usuario;\r\n\r\n\r\n}\r\n"
+        }
+    ]
+}

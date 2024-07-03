@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/constants/Estandares.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1719621659224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719621664339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+package com.skillswap.skillswap_core.constants;\r\n+\r\n+public class Estandares {\r\n+    public static final String API = \"/api/v1/\";\r\n+    //http://localhost:8080/api/v1/Amistades\r\n+\r\n+    public static final String CROSS = \"http://localhost:4200\";\r\n+\r\n+    public static final String PATH_REGISTRO = \"/registro\";\r\n+    public static final String PATH_INICIAR_SESION = \"/sesionon\";\r\n+    public static final String PATH_CERRAR_SESION = \"/sesionoff\";\r\n+    public static final String PATH_CERRAR_SESION = \"/sesionac\";\r\n+\r\n+}\r\n"
+                },
+                {
+                    "date": 1719621671331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+package com.skillswap.skillswap_core.constants;\r\n+\r\n+public class Estandares {\r\n+    public static final String API = \"/api/v1/\";\r\n+    //http://localhost:8080/api/v1/Amistades\r\n+\r\n+    public static final String CROSS = \"http://localhost:4200\";\r\n+\r\n+    public static final String PATH_REGISTRO = \"/registro\";\r\n+    public static final String PATH_INICIAR_SESION = \"/sesionon\";\r\n+    public static final String PATH_CERRAR_SESION = \"/sesionoff\";\r\n+    public static final String PATH_OBTENER_SESION = \"/sesionac\";\r\n+\r\n+}\r\n"
+                },
+                {
+                    "date": 1719621688259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,6 @@\n \r\n     public static final String PATH_REGISTRO = \"/registro\";\r\n     public static final String PATH_INICIAR_SESION = \"/sesionon\";\r\n     public static final String PATH_CERRAR_SESION = \"/sesionoff\";\r\n-    public static final String PATH_OBTENER_SESION = \"/sesionac\";\r\n \r\n }\r\n"
+                }
+            ],
+            "date": 1719621659224,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.constants;\r\n\r\npublic class Estandares {\r\n    public static final String API = \"/api/v1/\";\r\n    //http://localhost:8080/api/v1/Amistades\r\n\r\n    public static final String CROSS = \"http://localhost:4200\";\r\n\r\n    public static final String PATH_REGISTRO = \"/registro\";\r\n    public static final String PATH_INICIAR_SESION = \"/sesionon\";\r\n    public static final String PATH_CERRAR_SESION = \"/sesionoff\";\r\n    public static final String PATH_CERRAR_SESION = \"/sesionoff\";\r\n\r\n}\r\n"
+        }
+    ]
+}

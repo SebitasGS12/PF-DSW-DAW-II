@@ -19,6 +19,7 @@ import com.skillswap.skillswap_core.constants.Estandares;
 import com.skillswap.skillswap_core.entity.Perfil;
 import com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;
 import com.skillswap.skillswap_core.service.PerfilService;
+import com.skillswap.skillswap_core.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin(Estandares.CROSS)
 public class PerfilController {
        private final PerfilService perfilService;
+       private final UsuarioService usuarioService;
       @GetMapping
     public ResponseEntity<List<Perfil>> listarPerfil() {
         return ResponseEntity.ok(perfilService.findAll());
@@ -41,6 +43,19 @@ public class PerfilController {
             throw new ResourceNotFoundException("Objeto con id : " + id);
         }
     }
+
+
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<Perfil> buscarPerfilByIdUsuario(@PathVariable int id) {
+        try {
+
+            Perfil perfil = perfilService.findByUsuario(usuarioService.findById(id));
+            return ResponseEntity.ok(perfil);
+        } catch (NoSuchElementException e) {
+            throw new ResourceNotFoundException("Objeto con id : " + id);
+        }
+    }
+
      @PostMapping
     public ResponseEntity<Perfil> guardarPerfil(@RequestBody Perfil perfil) {
         Perfil nuevoPerfil = perfilService.savePerfil(perfil);

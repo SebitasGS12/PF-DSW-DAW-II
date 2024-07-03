@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/negocio/WebController.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1718762495914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718762506348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     }\r\n \r\n     @PostMapping\r\n         public ResponseEntity<Usuario> inciarSesion(@RequestBody Usuario usuario) {\r\n-            if ( usuarioService.findById(usuario.getUsuarioId()))\r\n+            if ( usuarioService.findById(usuario.getUsuarioId()).)\r\n \r\n \r\n             return new ResponseEntity<>(nuevoUsuario, HttpStatus.ACCEPTED);\r\n         }\r\n"
+                },
+                {
+                    "date": 1718762530851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     }\r\n \r\n     @PostMapping\r\n         public ResponseEntity<Usuario> inciarSesion(@RequestBody Usuario usuario) {\r\n-            if ( usuarioService.findById(usuario.getUsuarioId()))\r\n+            if ( usuarioService.findById(usuario.getUsuarioId()) != null)\r\n \r\n \r\n             return new ResponseEntity<>(nuevoUsuario, HttpStatus.ACCEPTED);\r\n         }\r\n"
+                }
+            ],
+            "date": 1718762495914,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.negocio;\r\n\r\nimport com.skillswap.skillswap_core.constants.Estandares;\r\nimport com.skillswap.skillswap_core.entity.Usuario;\r\nimport com.skillswap.skillswap_core.repository.IPerfilRepository;\r\nimport com.skillswap.skillswap_core.service.PerfilService;\r\nimport com.skillswap.skillswap_core.service.SesionService;\r\nimport com.skillswap.skillswap_core.service.UsuarioService;\r\nimport lombok.RequiredArgsConstructor;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.http.HttpStatus;\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.web.bind.annotation.*;\r\n\r\nimport javax.swing.event.MenuEvent;\r\n\r\n@RestController\r\n@RequestMapping(Estandares.API + \"Negocio\")\r\n@RequiredArgsConstructor\r\n@CrossOrigin(Estandares.CROSS)\r\npublic class WebController {\r\n\r\n    private PerfilService servicePerfil;\r\n    private UsuarioService usuarioService;\r\n    private SesionService serviceSesion;\r\n\r\n\r\n    @PostMapping(value= Estandares.PATH_REGISTRO)\r\n    public ResponseEntity<Usuario> registrarNuevaCuenta(@RequestBody Usuario usuario) {\r\n        Usuario nuevoUsuario = usuarioService.saveUsuario(usuario);\r\n        servicePerfil.crearPeril(nuevoUsuario);\r\n        return  ResponseEntity.ok(nuevoUsuario);\r\n    }\r\n\r\n    @PostMapping\r\n        public ResponseEntity<Usuario> inciarSesion(@RequestBody Usuario usuario) {\r\n            if ( usuarioService.findById(user))\r\n\r\n\r\n            return new ResponseEntity<>(nuevoUsuario, HttpStatus.ACCEPTED);\r\n        }\r\n\r\n    @PostMapping\r\n    public ResponseEntity<Usuario> cerrarSesion(@RequestBody Usuario usuario) {\r\n\r\n\r\n\r\n        return new ResponseEntity<>(nuevoUsuario, HttpStatus.ACCEPTED);\r\n    }\r\n\r\n\r\n\r\n}\r\n"
+        }
+    ]
+}

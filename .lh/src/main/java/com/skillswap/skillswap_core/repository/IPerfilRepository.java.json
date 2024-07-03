@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/repository/IPerfilRepository.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1719633164581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719633170045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,5 @@\n @Repository\r\n public interface IPerfilRepository extends JpaRepository<Perfil, Integer>{\r\n \r\n     Perfil findByUsuarioId(int id);\r\n-\r\n }\r\n"
+                },
+                {
+                    "date": 1719633200677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+package com.skillswap.skillswap_core.repository;\r\n+\r\n+import org.springframework.data.jpa.repository.JpaRepository;\r\n+import org.springframework.stereotype.Repository;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Perfil;\r\n+\r\n+@Repository\r\n+public interface IPerfilRepository extends JpaRepository<Perfil, Integer>{\r\n+\r\n+    Perfil findByUsuarioID(int usuarioId);\r\n+}\r\n"
+                },
+                {
+                    "date": 1719633243345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,11 @@\n import org.springframework.data.jpa.repository.JpaRepository;\r\n import org.springframework.stereotype.Repository;\r\n \r\n import com.skillswap.skillswap_core.entity.Perfil;\r\n+import com.skillswap.skillswap_core.entity.Usuario;\r\n \r\n @Repository\r\n public interface IPerfilRepository extends JpaRepository<Perfil, Integer>{\r\n \r\n-    Perfil findByUsuarioID(int usuarioId);\r\n+    Perfil findByObj_Usuario(Usuario obj_Usuario);\r\n }\r\n"
+                },
+                {
+                    "date": 1719633306772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,6 @@\n \r\n @Repository\r\n public interface IPerfilRepository extends JpaRepository<Perfil, Integer>{\r\n \r\n-    Perfil findByObj_Usuario(Usuario obj_Usuario);\r\n+    Perfil findByObjUsuario(Usuario obj_Usuario);\r\n }\r\n"
+                },
+                {
+                    "date": 1719633321503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,6 @@\n \r\n @Repository\r\n public interface IPerfilRepository extends JpaRepository<Perfil, Integer>{\r\n \r\n-    Perfil findByObjUsuario(Usuario obj_Usuario);\r\n+    Perfil findBybjUsuario(Usuario obj_Usuario);\r\n }\r\n"
+                },
+                {
+                    "date": 1719633332075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+package com.skillswap.skillswap_core.repository;\r\n+\r\n+import org.springframework.data.jpa.repository.JpaRepository;\r\n+import org.springframework.stereotype.Repository;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Perfil;\r\n+import com.skillswap.skillswap_core.entity.Usuario;\r\n+\r\n+@Repository\r\n+public interface IPerfilRepository extends JpaRepository<Perfil, Integer>{\r\n+\r\n+    Perfil findByobjUsuario(Usuario obj_Usuario);\r\n+}\r\n"
+                },
+                {
+                    "date": 1719633453132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+package com.skillswap.skillswap_core.repository;\r\n+\r\n+import org.springframework.data.jpa.repository.JpaRepository;\r\n+import org.springframework.stereotype.Repository;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Perfil;\r\n+import com.skillswap.skillswap_core.entity.Usuario;\r\n+\r\n+@Repository\r\n+public interface IPerfilRepository extends JpaRepository<Perfil, Integer>{\r\n+\r\n+    Perfil findByOb_jUsuario(Usuario obj_Usuario);\r\n+}\r\n"
+                },
+                {
+                    "date": 1719633495953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+package com.skillswap.skillswap_core.repository;\r\n+\r\n+import org.springframework.data.jpa.repository.JpaRepository;\r\n+import org.springframework.stereotype.Repository;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Perfil;\r\n+import com.skillswap.skillswap_core.entity.Usuario;\r\n+\r\n+@Repository\r\n+public interface IPerfilRepository extends JpaRepository<Perfil, Integer>{\r\n+\r\n+    Perfil findByUsuario(Usuario obj_Usuario);\r\n+}\r\n"
+                }
+            ],
+            "date": 1719633164581,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.repository;\r\n\r\nimport org.springframework.data.jpa.repository.JpaRepository;\r\nimport org.springframework.stereotype.Repository;\r\n\r\nimport com.skillswap.skillswap_core.entity.Perfil;\r\n\r\n@Repository\r\npublic interface IPerfilRepository extends JpaRepository<Perfil, Integer>{\r\n\r\n    Perfil findByUsuarioId(int id);\r\n\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/service/MensajeService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1719765513096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719765535399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,56 @@\n+package com.skillswap.skillswap_core.service;\r\n+\r\n+import java.util.List;\r\n+\r\n+import org.springframework.stereotype.Service;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Mensajes;\r\n+import com.skillswap.skillswap_core.repository.IMensajeRepository;\r\n+\r\n+import lombok.AllArgsConstructor;\r\n+\r\n+@Service\r\n+@AllArgsConstructor\r\n+public class MensajeService {\r\n+    private final IMensajeRepository remen;\r\n+\r\n+    public int ultimoId(){\r\n+        List<Mensajes> lista = remen.findAll();\r\n+        if (lista.size() == 0 ) {\r\n+            return 1;\r\n+        }\r\n+        return lista.get(lista.size()-1).getMensajeId()+1 ;\r\n+    }\r\n+\r\n+    public List<Mensajes> findAll(){\r\n+        return remen.findAll();\r\n+    }\r\n+    public Mensajes findById(int id){\r\n+        return  remen.findById(id).orElseThrow();\r\n+    }\r\n+\r\n+    public Mensajes saveMensajes(Mensajes mensajes) {\r\n+        if (mensajes.getMensajeId() == null ){\r\n+            mensajes.setMensajeId(ultimoId());\r\n+        }\r\n+        return remen.save(mensajes);\r\n+    }\r\n+\r\n+    public void delteMensajesById(Integer id) {\r\n+        remen.deleteById(id);\r\n+    }\r\n+    public Mensajes nullMensajes() {\r\n+        Mensajes mensajes = new Mensajes();\r\n+        mensajes.setMensajeId(null);\r\n+        return mensajes;\r\n+    }\r\n+    public Mensajes newMensajes() {\r\n+        Mensajes mensajes = new Mensajes();\r\n+        mensajes.setMensajeId(ultimoId());\r\n+        return mensajes;\r\n+    }\r\n+\r\n+    public List<Mensajes> findByChatId(int id) {\r\n+        return repo\r\n+    }\r\n+}\r\n"
+                },
+                {
+                    "date": 1719765542327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,7 +50,7 @@\n         return mensajes;\r\n     }\r\n \r\n     public List<Mensajes> findByChatId(int id) {\r\n-        return remen.f\r\n+        return remen.findByChat()\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1719765576837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,8 +49,8 @@\n         mensajes.setMensajeId(ultimoId());\r\n         return mensajes;\r\n     }\r\n \r\n-    public List<Mensajes> findByChatId(int id) {\r\n+    public List<Mensajes> findByChatId(Chat id) {\r\n         return remen.findByChat()\r\n     }\r\n }\r\n"
+                }
+            ],
+            "date": 1719765513096,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\nimport java.util.List;\r\n\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.skillswap.skillswap_core.entity.Mensajes;\r\nimport com.skillswap.skillswap_core.repository.IMensajeRepository;\r\n\r\nimport lombok.AllArgsConstructor;\r\n\r\n@Service\r\n@AllArgsConstructor\r\npublic class MensajeService {\r\n    private final IMensajeRepository remen;\r\n\r\n    public int ultimoId(){\r\n        List<Mensajes> lista = remen.findAll();\r\n        if (lista.size() == 0 ) {\r\n            return 1;\r\n        }\r\n        return lista.get(lista.size()-1).getMensajeId()+1 ;\r\n    }\r\n\r\n    public List<Mensajes> findAll(){\r\n        return remen.findAll();\r\n    }\r\n    public Mensajes findById(int id){\r\n        return  remen.findById(id).orElseThrow();\r\n    }\r\n\r\n    public Mensajes saveMensajes(Mensajes mensajes) {\r\n        if (mensajes.getMensajeId() == null ){\r\n            mensajes.setMensajeId(ultimoId());\r\n        }\r\n        return remen.save(mensajes);\r\n    }\r\n\r\n    public void delteMensajesById(Integer id) {\r\n        remen.deleteById(id);\r\n    }\r\n    public Mensajes nullMensajes() {\r\n        Mensajes mensajes = new Mensajes();\r\n        mensajes.setMensajeId(null);\r\n        return mensajes;\r\n    }\r\n    public Mensajes newMensajes() {\r\n        Mensajes mensajes = new Mensajes();\r\n        mensajes.setMensajeId(ultimoId());\r\n        return mensajes;\r\n    }\r\n\r\n    public List<Mensajes> findByChatId(int id) {\r\n        // TODO Auto-generated method stub\r\n        throw new UnsupportedOperationException(\"Unimplemented method 'findByChatId'\");\r\n    }\r\n}\r\n"
+        }
+    ]
+}

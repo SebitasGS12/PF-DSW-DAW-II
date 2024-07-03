@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/service/HabilidadService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1719011334275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719011351445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     public Habilidad findById(int id){\r\n         return  reha.findById(id).orElseThrow();\r\n     }\r\n \r\n-    public Habilidad findById(int id){\r\n+    public Habilidad findByCategoriaHabilidad(int id){\r\n         return  reha.findById(id).orElseThrow();\r\n     }\r\n \r\n     public Habilidad saveHabilidad(Habilidad habilidad) {\r\n"
+                },
+                {
+                    "date": 1719011375398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,58 @@\n+package com.skillswap.skillswap_core.service;\r\n+\r\n+import java.util.List;\r\n+\r\n+import org.springframework.stereotype.Service;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Habilidad;\r\n+import com.skillswap.skillswap_core.repository.IHabilidadRepository;\r\n+\r\n+import lombok.AllArgsConstructor;\r\n+\r\n+@Service\r\n+@AllArgsConstructor\r\n+public class HabilidadService {\r\n+            private final IHabilidadRepository reha;\r\n+\r\n+    public int ultimoId(){\r\n+        List<Habilidad> lista = reha.findAll();\r\n+        if (lista.size() == 0 ) {\r\n+            return 1;\r\n+        }\r\n+        return lista.get(lista.size()-1).getHabilidadId()+1 ;\r\n+    }\r\n+\r\n+    public List<Habilidad> findAll(){\r\n+        return reha.findAll();\r\n+    }\r\n+    public Habilidad findById(int id){\r\n+        return  reha.findById(id).orElseThrow();\r\n+    }\r\n+\r\n+    public Habilidad findByCategoriaHabilidadId(int id){\r\n+        return  reha.findAll().stream(\r\n+            habilidad -> habilidad.\r\n+\r\n+        )\r\n+    }\r\n+\r\n+    public Habilidad saveHabilidad(Habilidad habilidad) {\r\n+        if (habilidad.getHabilidadId() == null ){\r\n+            habilidad.setHabilidadId(ultimoId());\r\n+        }\r\n+       return reha.save(habilidad);\r\n+    }\r\n+    public void delteHabilidadById(Integer id) {\r\n+        reha.deleteById(id);\r\n+    }\r\n+    public Habilidad nulHabilidad() {\r\n+        Habilidad habilidad = new Habilidad();\r\n+        habilidad.setHabilidadId(null);\r\n+        return habilidad;\r\n+    }\r\n+    public Habilidad newHabilidad() {\r\n+        Habilidad habilidad = new Habilidad();\r\n+        habilidad.setHabilidadId(ultimoId());\r\n+        return habilidad;\r\n+    }\r\n+}\r\n"
+                }
+            ],
+            "date": 1719011334275,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\nimport java.util.List;\r\n\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.skillswap.skillswap_core.entity.Habilidad;\r\nimport com.skillswap.skillswap_core.repository.IHabilidadRepository;\r\n\r\nimport lombok.AllArgsConstructor;\r\n\r\n@Service\r\n@AllArgsConstructor\r\npublic class HabilidadService {\r\n            private final IHabilidadRepository reha;\r\n\r\n    public int ultimoId(){\r\n        List<Habilidad> lista = reha.findAll();\r\n        if (lista.size() == 0 ) {\r\n            return 1;\r\n        }\r\n        return lista.get(lista.size()-1).getHabilidadId()+1 ;\r\n    }\r\n\r\n    public List<Habilidad> findAll(){\r\n        return reha.findAll();\r\n    }\r\n    public Habilidad findById(int id){\r\n        return  reha.findById(id).orElseThrow();\r\n    }\r\n\r\n\r\n    \r\n    public Habilidad saveHabilidad(Habilidad habilidad) {\r\n        if (habilidad.getHabilidadId() == null ){\r\n            habilidad.setHabilidadId(ultimoId());\r\n        }\r\n       return reha.save(habilidad);\r\n    }\r\n    public void delteHabilidadById(Integer id) {\r\n        reha.deleteById(id);\r\n    }\r\n    public Habilidad nulHabilidad() {\r\n        Habilidad habilidad = new Habilidad();\r\n        habilidad.setHabilidadId(null);\r\n        return habilidad;\r\n    }\r\n    public Habilidad newHabilidad() {\r\n        Habilidad habilidad = new Habilidad();\r\n        habilidad.setHabilidadId(ultimoId());\r\n        return habilidad;\r\n    }\r\n}\r\n"
+        }
+    ]
+}

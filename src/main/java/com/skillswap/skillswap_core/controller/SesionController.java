@@ -28,10 +28,16 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin(Estandares.CROSS)
 public class SesionController {
          private final SesionService sesionService;
-      @GetMapping
+    @GetMapping
     public ResponseEntity<List<Sesion>> listarSesion() {
         return ResponseEntity.ok(sesionService.findAll());
     }
+
+    @GetMapping("/actual")
+    public ResponseEntity<Sesion> obtenerSesion() {
+        return ResponseEntity.ok(sesionService.getSesion());
+    }
+
      @GetMapping("/{id}")
     public ResponseEntity<Sesion> buscarSesion(@PathVariable int id) {
         try {

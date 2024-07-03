@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.skillswap.skillswap_core.Util.Utils;
 import com.skillswap.skillswap_core.entity.Chat;
 import com.skillswap.skillswap_core.repository.IChatRepository;
 
@@ -49,5 +50,13 @@ public class ChatService {
         Chat chat = new Chat();
         chat.setChatId(ultimoId());
         return chat;
+    }
+
+    public Chat generarNuevoChat() {
+        Chat chat = newChat();
+        chat.setFechaCreacion(Utils.getFechaHoy());
+        chat.setFechaModificacion(Utils.getFechaHoy());
+        chat.setNombre("Chat Basico");
+        return rechat.save(chat);
     }
 }

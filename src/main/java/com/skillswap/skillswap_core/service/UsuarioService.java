@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.skillswap.skillswap_core.Util.Utils;
+import com.skillswap.skillswap_core.entity.TipoUsuario;
 import com.skillswap.skillswap_core.entity.Usuario;
 import com.skillswap.skillswap_core.repository.IUsuarioRepository;
 import lombok.AllArgsConstructor;
@@ -31,10 +33,22 @@ public class UsuarioService {
         return  repo.findById(id).orElseThrow();
     }
 
+    public Usuario findByUserAndPass(String correo,String password){
+        return  findAll().stream().filter(
+            usuario -> usuario.getContrasenia().equals(password) && usuario.getCorreo().equals(correo))
+            .findFirst().orElseThrow();
+    }
     public Usuario saveUsuario(Usuario usuario) {
         if (usuario.getUsuarioId() == null ){
             usuario.setUsuarioId(ultimoId());
         }
+        usuario.setEstado(true);
+        usuario.setFechaRegistro(Utils.getFechaHoy());
+
+        TipoUsuario tipo = new TipoUsuario();
+        tipo.setTipoUsuarioID(2);
+
+        usuario.setObj_tipoUsuario(tipo);
         return repo.save(usuario);
     }
 

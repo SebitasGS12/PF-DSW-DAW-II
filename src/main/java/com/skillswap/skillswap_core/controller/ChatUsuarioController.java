@@ -5,6 +5,8 @@ import com.skillswap.skillswap_core.entity.CategoriaHabilidad;
 import com.skillswap.skillswap_core.entity.ChatUsuario;
 import com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;
 import com.skillswap.skillswap_core.service.ChatUsuarioService;
+import com.skillswap.skillswap_core.service.UsuarioService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +21,9 @@ import java.util.NoSuchElementException;
 @CrossOrigin(Estandares.CROSS)
 public class ChatUsuarioController {
 
-    private final ChatUsuarioService service;
+private final ChatUsuarioService service;   
+    private final UsuarioService usuarioService;
+
 
     @GetMapping
     public ResponseEntity<List<ChatUsuario>> listar() {
@@ -35,6 +39,22 @@ public class ChatUsuarioController {
             throw new ResourceNotFoundException("Objeto con id : " + id);
         }
     }
+    @GetMapping("/usuario/{usuarioId}/amigo/{amigoId}")
+    public ResponseEntity<ChatUsuario> buscarChatUsuarioByUsuario(
+        @PathVariable int usuarioId,
+        @PathVariable int amigoId)     
+    {
+
+        ChatUsuario chatUsuario = service.obtenerChatUsuarioByUsuario(usuarioId, amigoId);
+        if (chatUsuario != null) {
+            return new ResponseEntity<>(chatUsuario, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+
 
     @PostMapping
     public ResponseEntity<ChatUsuario> guardar(@RequestBody ChatUsuario chatUsuario) {

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/repository/IMensajeRepository.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1719765601273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1719765601273,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.repository;\r\n\r\nimport java.util.List;\r\n\r\nimport org.springframework.data.jpa.repository.JpaRepository;\r\nimport org.springframework.stereotype.Repository;\r\n\r\nimport com.skillswap.skillswap_core.entity.Chat;\r\nimport com.skillswap.skillswap_core.entity.Mensajes;\r\n\r\n@Repository\r\npublic interface IMensajeRepository extends JpaRepository<Mensajes, Integer>{\r\n\r\n    List<Mensajes> findByChat(Chat chat);\r\n\r\n}\r\n"
+        }
+    ]
+}

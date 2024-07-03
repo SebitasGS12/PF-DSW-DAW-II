@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.skillswap.skillswap_core.entity.Chat;
 import com.skillswap.skillswap_core.entity.Mensajes;
 import com.skillswap.skillswap_core.repository.IMensajeRepository;
 
@@ -48,5 +49,9 @@ public class MensajeService {
         Mensajes mensajes = new Mensajes();
         mensajes.setMensajeId(ultimoId());
         return mensajes;
+    }
+
+    public List<Mensajes> findByChatId(Chat chat) {
+        return remen.findByChat(chat);
     }
 }

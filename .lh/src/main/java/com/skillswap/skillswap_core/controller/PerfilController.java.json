@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/controller/PerfilController.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1719627448611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719627455649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n         }\r\n     }\r\n \r\n \r\n-    @GetMapping(\"/{id}\")\r\n+    @GetMapping(\"/usuario/{id}\")\r\n     public ResponseEntity<Perfil> buscarPerfil(@PathVariable int id) {\r\n         try {\r\n             Perfil perfil = perfilService.findById(id);\r\n             return ResponseEntity.ok(perfil);\r\n"
+                },
+                {
+                    "date": 1719627464091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     }\r\n \r\n \r\n     @GetMapping(\"/usuario/{id}\")\r\n-    public ResponseEntity<Perfil> buscarPerfil(@PathVariable int id) {\r\n+    public ResponseEntity<Perfil> buscarPerfilByIdUsuario(@PathVariable int id) {\r\n         try {\r\n             Perfil perfil = perfilService.findById(id);\r\n             return ResponseEntity.ok(perfil);\r\n         } catch (NoSuchElementException e) {\r\n"
+                },
+                {
+                    "date": 1719627469414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n \r\n     @GetMapping(\"/usuario/{id}\")\r\n     public ResponseEntity<Perfil> buscarPerfilByIdUsuario(@PathVariable int id) {\r\n         try {\r\n-            Perfil perfil = perfilService.findById(id);\r\n+            Perfil perfil = perfilService.findByIdUsuario(id);\r\n             return ResponseEntity.ok(perfil);\r\n         } catch (NoSuchElementException e) {\r\n             throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n         }\r\n"
+                },
+                {
+                    "date": 1719631715179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,10 @@\n     @GetMapping(\"/usuario/{id}\")\r\n     public ResponseEntity<Perfil> buscarPerfilByIdUsuario(@PathVariable int id) {\r\n         try {\r\n             Perfil perfil = perfilService.findByIdUsuario(id);\r\n+            System.out.println(perfil.toString());\r\n+            System.out.println(perfil.toString());\r\n             return ResponseEntity.ok(perfil);\r\n         } catch (NoSuchElementException e) {\r\n             throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n         }\r\n"
+                },
+                {
+                    "date": 1719631723530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,8 @@\n \r\n     @GetMapping(\"/usuario/{id}\")\r\n     public ResponseEntity<Perfil> buscarPerfilByIdUsuario(@PathVariable int id) {\r\n         try {\r\n-            System.out.println(perfil.toString());\r\n             Perfil perfil = perfilService.findByIdUsuario(id);\r\n             System.out.println(perfil.toString());\r\n             return ResponseEntity.ok(perfil);\r\n         } catch (NoSuchElementException e) {\r\n"
+                },
+                {
+                    "date": 1719633540235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n \r\n     @GetMapping(\"/usuario/{id}\")\r\n     public ResponseEntity<Perfil> buscarPerfilByIdUsuario(@PathVariable int id) {\r\n         try {\r\n-            Perfil perfil = perfilService.findByIdUsuario(id);\r\n+            Perfil perfil = perfilService.findByUsuario(id);\r\n             System.out.println(perfil.toString());\r\n             return ResponseEntity.ok(perfil);\r\n         } catch (NoSuchElementException e) {\r\n             throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n"
+                }
+            ],
+            "date": 1719627448611,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.controller;\r\n\r\nimport java.util.List;\r\nimport java.util.NoSuchElementException;\r\n\r\nimport org.springframework.http.HttpStatus;\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.web.bind.annotation.CrossOrigin;\r\nimport org.springframework.web.bind.annotation.DeleteMapping;\r\nimport org.springframework.web.bind.annotation.GetMapping;\r\nimport org.springframework.web.bind.annotation.PathVariable;\r\nimport org.springframework.web.bind.annotation.PostMapping;\r\nimport org.springframework.web.bind.annotation.PutMapping;\r\nimport org.springframework.web.bind.annotation.RequestBody;\r\nimport org.springframework.web.bind.annotation.RequestMapping;\r\nimport org.springframework.web.bind.annotation.RestController;\r\n\r\nimport com.skillswap.skillswap_core.constants.Estandares;\r\nimport com.skillswap.skillswap_core.entity.Perfil;\r\nimport com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;\r\nimport com.skillswap.skillswap_core.service.PerfilService;\r\n\r\nimport lombok.RequiredArgsConstructor;\r\n\r\n@RestController\r\n@RequestMapping(Estandares.API + \"Perfil\")\r\n@RequiredArgsConstructor\r\n@CrossOrigin(Estandares.CROSS)\r\npublic class PerfilController {\r\n       private final PerfilService perfilService;\r\n      @GetMapping\r\n    public ResponseEntity<List<Perfil>> listarPerfil() {\r\n        return ResponseEntity.ok(perfilService.findAll());\r\n    }\r\n     @GetMapping(\"/{id}\")\r\n    public ResponseEntity<Perfil> buscarPerfil(@PathVariable int id) {\r\n        try {\r\n            Perfil perfil = perfilService.findById(id);\r\n            return ResponseEntity.ok(perfil);\r\n        } catch (NoSuchElementException e) {\r\n            throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n        }\r\n    }\r\n\r\n\r\n    @GetMapping(\"/{id}\")\r\n    public ResponseEntity<Perfil> buscarPerfil(@PathVariable int id) {\r\n        try {\r\n            Perfil perfil = perfilService.findById(id);\r\n            return ResponseEntity.ok(perfil);\r\n        } catch (NoSuchElementException e) {\r\n            throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n        }\r\n    }\r\n\r\n     @PostMapping\r\n    public ResponseEntity<Perfil> guardarPerfil(@RequestBody Perfil perfil) {\r\n        Perfil nuevoPerfil = perfilService.savePerfil(perfil);\r\n        return new ResponseEntity<>(nuevoPerfil, HttpStatus.CREATED);\r\n    }\r\n    \r\n    \r\n    @PutMapping(\"/{id}\")\r\n    public ResponseEntity<Perfil> actualizarPerfil(@PathVariable int id, @RequestBody Perfil newPerfil) {\r\n        validarExistencia(id);\r\n        newPerfil.setPerfilID(id);\r\n        Perfil updatedPerfil = perfilService.savePerfil(newPerfil);\r\n        return ResponseEntity.ok(updatedPerfil);\r\n    }\r\n     @DeleteMapping(\"/{id}\")\r\n    public ResponseEntity<String> eliminarPerfil(@PathVariable int id) {\r\n        validarExistencia(id);\r\n        perfilService.deltePerfilById(id);\r\n        String msg = \"Notificacion Eliminada : \" + id;\r\n        return ResponseEntity.ok(msg);\r\n    }\r\n\r\n    private void validarExistencia(int id) {\r\n        try {\r\n            perfilService.findById(id);\r\n        } catch (NoSuchElementException e) {\r\n            throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n        }\r\n    }\r\n}\r\n"
+        }
+    ]
+}

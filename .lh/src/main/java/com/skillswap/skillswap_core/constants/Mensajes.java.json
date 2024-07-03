@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/constants/Mensajes.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1719786549456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719786584748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n package com.skillswap.skillswap_core.constants;\r\n \r\n public class Mensajes {\r\n     \r\n+\r\n+    \r\n+\r\n }\r\n"
+                },
+                {
+                    "date": 1719786590168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n \r\n public class Mensajes {\r\n     \r\n \r\n-    \r\n+    public static final String \r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1719786597839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n \r\n public class Mensajes {\r\n     \r\n \r\n-    public static final String = \"\"\r\n+    public static final String = \"te ah enviado un mensajes!\"\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1719786607333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n \r\n public class Mensajes {\r\n     \r\n \r\n-    public static final String = \"te ah enviado un mensaje!\";\r\n-    \r\n+    public static  String = \"te ah enviado un mensaje!\";\r\n \r\n+\r\n }\r\n"
+                }
+            ],
+            "date": 1719786549456,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.constants;\r\n\r\npublic class Mensajes {\r\n    \r\n}\r\n"
+        }
+    ]
+}

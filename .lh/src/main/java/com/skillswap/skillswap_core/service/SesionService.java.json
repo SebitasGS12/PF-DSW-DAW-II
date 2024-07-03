@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/service/SesionService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1718764722811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719621721272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,12 +16,9 @@\n \r\n     private final ISesionRepository reses;\r\n \r\n     public int ultimoId(){\r\n-        List<Sesion> lista = reses.findAll();\r\n-        if (lista.size() == 0 ) {\r\n-            return 1;\r\n-        }\r\n+\r\n         return lista.get(lista.size()-1).getSesionId()+1 ;\r\n     }\r\n \r\n     public void openSesion(Usuario usuario){\r\n"
+                },
+                {
+                    "date": 1719623122895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,18 +16,17 @@\n \r\n     private final ISesionRepository reses;\r\n \r\n     public int ultimoId(){\r\n-\r\n-        return lista.get(lista.size()-1).getSesionId()+1 ;\r\n+        return 1 ;\r\n     }\r\n \r\n     public void openSesion(Usuario usuario){\r\n         deleteAllSesion();\r\n         reses.save(newSesion(usuario));\r\n     }\r\n     public Sesion getSesion(){\r\n-        return findAll().stream().findFirst().orElse(nullSesion());\r\n+        return findAll().stream().findFirst().orElse(());\r\n     }\r\n \r\n     public void closeSesion(){\r\n         deleteAllSesion();\r\n"
+                }
+            ],
+            "date": 1718764722811,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\nimport java.util.List;\r\n\r\nimport com.skillswap.skillswap_core.entity.Usuario;\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.skillswap.skillswap_core.entity.Sesion;\r\nimport com.skillswap.skillswap_core.repository.ISesionRepository;\r\n\r\nimport lombok.AllArgsConstructor;\r\n\r\n@Service\r\n@AllArgsConstructor\r\npublic class SesionService {\r\n\r\n    private final ISesionRepository reses;\r\n\r\n    public int ultimoId(){\r\n        List<Sesion> lista = reses.findAll();\r\n        if (lista.size() == 0 ) {\r\n            return 1;\r\n        }\r\n        return lista.get(lista.size()-1).getSesionId()+1 ;\r\n    }\r\n\r\n    public void openSesion(Usuario usuario){\r\n        deleteAllSesion();\r\n        reses.save(newSesion(usuario));\r\n    }\r\n    public Sesion getSesion(){\r\n        return findAll().stream().findFirst().orElse(nullSesion());\r\n    }\r\n\r\n    public void closeSesion(){\r\n        deleteAllSesion();\r\n    }\r\n\r\n\r\n    public List<Sesion> findAll(){\r\n        return reses.findAll();\r\n    }\r\n    public Sesion findById(int id){\r\n        return  reses.findById(id).orElseThrow();\r\n    }\r\n\r\n    public Sesion saveSesion(Sesion sesion) {\r\n        if (sesion.getSesionId() == null ){\r\n            sesion.setSesionId(ultimoId());\r\n        }\r\n        return reses.save(sesion);\r\n    }\r\n    public void deleteSesionById(Integer id) {\r\n        reses.deleteById(id);\r\n    }\r\n    public void deleteAllSesion(){\r\n        reses.deleteAll();\r\n    }\r\n\r\n    public Sesion nullSesion() {\r\n        Sesion sesion = new Sesion();\r\n        sesion.setSesionId(null);\r\n        sesion.setObj_Usuario(null);\r\n        return sesion;\r\n    }\r\n    public Sesion newSesion(Usuario usuario) {\r\n        Sesion sesion = new Sesion();\r\n        sesion.setSesionId(ultimoId());\r\n        sesion.setObj_Usuario(usuario);\r\n        return sesion;\r\n    }\r\n}\r\n"
+        }
+    ]
+}

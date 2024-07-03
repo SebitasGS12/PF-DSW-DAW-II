@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -14,7 +15,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -37,7 +37,7 @@ public class Usuario {
     private TipoUsuario obj_tipoUsuario;
     
     @JsonIgnore
-    @OneToMany(mappedBy = "obj_Usuario",cascade =CascadeType.ALL,orphanRemoval = true )
+    @OneToMany(mappedBy = "usuario",cascade =CascadeType.ALL,orphanRemoval = true )
     private List<Amistades>  amistades = new ArrayList<>();
 
     @JsonIgnore
@@ -45,7 +45,7 @@ public class Usuario {
     private List<Mensajes>  mensajes = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "obj_Usuario",cascade =CascadeType.ALL,orphanRemoval = true )
+    @OneToMany(mappedBy = "usuario",cascade =CascadeType.ALL,orphanRemoval = true )
     private List<Notificaciones>  notificaciones = new ArrayList<>();
     
     //TODO AGREGAR NULL AL ELIMINAR
@@ -57,10 +57,6 @@ public class Usuario {
     @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario")
     private List<Foros>  foros = new ArrayList<>();
-
-    @JsonIgnore
-    @OneToOne(mappedBy = "obj_Usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Perfil perfil;
 
     @JsonIgnore
     @OneToMany(mappedBy = "obj_Usuario",cascade =CascadeType.ALL,orphanRemoval = true )

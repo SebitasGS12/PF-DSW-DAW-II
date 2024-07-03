@@ -12,10 +12,15 @@ public class ChatUsuario {
     private Integer chatUsuarioId;
 
     @ManyToOne
-    @JoinColumn(name = "usuarioId")
-    private Usuario obj_usuario;
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    
+    @ManyToOne
+    @JoinColumn(name = "amigo_id")
+    private Usuario amigo;
 
     @ManyToOne
     @JoinColumn(name = "chatId")
-    private Chat obj_chat;
+    private Chat chat;
 }
