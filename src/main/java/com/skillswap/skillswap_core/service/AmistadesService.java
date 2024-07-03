@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.skillswap.skillswap_core.entity.Amistades;
+import com.skillswap.skillswap_core.entity.Usuario;
 import com.skillswap.skillswap_core.repository.IAmistadesRepository;
 
 import lombok.AllArgsConstructor;
@@ -49,5 +50,17 @@ public class AmistadesService {
         Amistades amistades = new Amistades();
         amistades.setAmistadID(ultimoId());
         return amistades;
+    }
+
+    public List<Amistades> findByUsuario(Usuario usuario) {
+        return ream.findByUsuario(usuario);
+    }
+
+    public Boolean existeAmistad(Usuario usuario, Usuario amigo) {
+        return ream.findByUsuarioAndAmigo(usuario,amigo).isPresent();
+    }
+
+    public Amistades devolverAmistad(Usuario usuario, Usuario amigo) {
+        return ream.findByUsuarioAndAmigo(usuario,amigo).orElseThrow();
     }
 }

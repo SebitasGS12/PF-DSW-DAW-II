@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1719615966141,
@@ -12,6 +12,22 @@
                 {
                     "date": 1719615999739,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n      @GetMapping\r\n     public ResponseEntity<List<Usuario>> listarUsuario() {\r\n         return ResponseEntity.ok(usuarioService.findAll());\r\n     }\r\n-     @GetMapping(\"/{id}\")\r\n+    @GetMapping(\"/{id}\")\r\n     public ResponseEntity<Usuario> buscarUsuario(@PathVariable int id) {\r\n         try {\r\n             Usuario usuario = usuarioService.findById(id);\r\n             return ResponseEntity.ok(usuario);\r\n"
+                },
+                {
+                    "date": 1719879150151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n         } catch (NoSuchElementException e) {\r\n             throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n         }\r\n     }\r\n-     @PostMapping\r\n+    @PostMapping\r\n     public ResponseEntity<Usuario> guardarUsuario(@RequestBody Usuario usuario) {\r\n         Usuario nuevoUsuario = usuarioService.saveUsuario(usuario);\r\n         return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);\r\n     }\r\n"
+                },
+                {
+                    "date": 1719879228440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,10 @@\n     }\r\n     @PostMapping\r\n     public ResponseEntity<Usuario> guardarUsuario(@RequestBody Usuario usuario) {\r\n         Usuario nuevoUsuario = usuarioService.saveUsuario(usuario);\r\n+\r\n+        \r\n         return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);\r\n     }\r\n     \r\n     \r\n"
+                },
+                {
+                    "date": 1719879236925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n @RequiredArgsConstructor\r\n @CrossOrigin(Estandares.CROSS)\r\n public class UsuarioController {\r\n     private final UsuarioService usuarioService;\r\n-    private final UsuarioService usuarioService;\r\n+    private final PerfilService perfilService;\r\n      @GetMapping\r\n     public ResponseEntity<List<Usuario>> listarUsuario() {\r\n         return ResponseEntity.ok(usuarioService.findAll());\r\n     }\r\n"
+                },
+                {
+                    "date": 1719879284726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n import com.skillswap.skillswap_core.constants.Estandares;\r\n import com.skillswap.skillswap_core.entity.Usuario;\r\n import com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;\r\n import com.skillswap.skillswap_core.service.UsuarioService;\r\n+import com.skillswap.skillswap_core.service.UsuarioService;\r\n \r\n import lombok.RequiredArgsConstructor;\r\n \r\n @RestController\r\n"
                 }
             ],
             "date": 1719615966141,

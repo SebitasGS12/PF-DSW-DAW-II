@@ -13,9 +13,14 @@ public class ChatUsuario {
 
     @ManyToOne
     @JoinColumn(name = "usuarioId")
-    private Usuario obj_usuario;
+    private Usuario usuario;
+
+    
+    @ManyToOne
+    @JoinColumn(name = "amigoId")
+    private Usuario amigo;
 
     @ManyToOne
     @JoinColumn(name = "chatId")
-    private Chat obj_chat;
+    private Chat chat;
 }

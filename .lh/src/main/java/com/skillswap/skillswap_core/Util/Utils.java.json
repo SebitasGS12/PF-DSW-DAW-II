@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/Util/Utils.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1719788737483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719788749228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package com.skillswap.skillswap_core.Util;\r\n \r\n public class Utils {\r\n     \r\n-    \r\n+    public Date\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1719788760064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n package com.skillswap.skillswap_core.Util;\r\n \r\n public class Utils {\r\n     \r\n-    public Date \r\n+    public Date getFechaHoy(){\r\n+        \r\n+    }\r\n \r\n }\r\n"
+                }
+            ],
+            "date": 1719788737483,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.Util;\r\n\r\npublic class Utils {\r\n    \r\n}\r\n"
+        }
+    ]
+}

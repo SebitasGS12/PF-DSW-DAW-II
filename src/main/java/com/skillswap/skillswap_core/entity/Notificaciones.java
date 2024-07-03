@@ -1,7 +1,9 @@
 package com.skillswap.skillswap_core.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
@@ -9,6 +11,7 @@ import java.sql.Date;
 @Table(name = "notificaciones")
 @Data
 public class Notificaciones {
+
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Integer notificacionesId;
@@ -24,7 +27,10 @@ public class Notificaciones {
 
     @ManyToOne
     @JoinColumn(name = "usuarioID")
-    private Usuario obj_Usuario;
+    private Usuario usuario;
 
+    @ManyToOne
+    @JoinColumn(name = "amigoID")
+    private Usuario amigo;
 
 }

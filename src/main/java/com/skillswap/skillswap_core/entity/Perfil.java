@@ -41,9 +41,13 @@ public class Perfil {
 
     private String biografia;
 
-    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "usuarioID")
     private Usuario usuario;
+
+
+    public String getNombreCompleto(){
+        return this.nombre + " " + this.apellido;
+    }
 
 }

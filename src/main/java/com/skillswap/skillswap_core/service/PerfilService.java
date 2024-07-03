@@ -38,6 +38,8 @@ public class PerfilService {
         return reper.save(perfil);
     }
 
+    
+
     public void deltePerfilById(Integer id) {
         reper.deleteById(id);
     }
@@ -60,8 +62,10 @@ public class PerfilService {
 
     public void crearPeril(Usuario usuario) {
         Perfil nuevoPerfil = newPerfil();
-
         nuevoPerfil.setUsuario(usuario);
+        
+        reper.save(nuevoPerfil);
+
 
     }
 

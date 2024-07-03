@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/constants/Alertas.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1719786750200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719787908684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \r\n public class Alertas {\r\n     \r\n     public static  final String MensajeRecibido = \" te ah enviado un mensaje!\";\r\n+    public static String tituloNuevoMensaje;\r\n     \r\n     public static String crearMensajeRecibido(String emisor ){\r\n \r\n         return emisor.toUpperCase() + MensajeRecibido;\r\n"
+                },
+                {
+                    "date": 1719787913766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n public class Alertas {\r\n     \r\n     public static  final String MensajeRecibido = \" te ah enviado un mensaje!\";\r\n-    public static String tituloNuevoMensaje;\r\n+    public static final String tituloNuevoMensaje;\r\n     \r\n     public static String crearMensajeRecibido(String emisor ){\r\n \r\n         return emisor.toUpperCase() + MensajeRecibido;\r\n"
+                },
+                {
+                    "date": 1719787919895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+package com.skillswap.skillswap_core.constants;\r\n+\r\n+public class Alertas {\r\n+    \r\n+    public static  final String MensajeRecibido = \" te ah enviado un mensaje!\";\r\n+    public static final String tituloNuevoMensaje = \"Nuevo Mensaje\";\r\n+    \r\n+    public static String crearMensajeRecibido(String emisor ){\r\n+\r\n+        return emisor.toUpperCase() + MensajeRecibido;\r\n+\r\n+    }\r\n+}\r\n"
+                }
+            ],
+            "date": 1719786750200,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.constants;\r\n\r\npublic class Alertas {\r\n    \r\n    public static  final String MensajeRecibido = \" te ah enviado un mensaje!\";\r\n    \r\n    public static String crearMensajeRecibido(String emisor ){\r\n\r\n        return emisor.toUpperCase() + MensajeRecibido;\r\n\r\n    }\r\n}\r\n"
+        }
+    ]
+}

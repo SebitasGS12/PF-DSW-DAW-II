@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skillswap.skillswap_core.constants.Estandares;
 import com.skillswap.skillswap_core.entity.Notificaciones;
+import com.skillswap.skillswap_core.entity.Perfil;
 import com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;
 import com.skillswap.skillswap_core.service.NotificacionesService;
+import com.skillswap.skillswap_core.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +29,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @CrossOrigin(Estandares.CROSS)
 public class NotificacionesController {
-     private final NotificacionesService notificacionesService;
+
+    private final NotificacionesService notificacionesService;
+    private final UsuarioService usuarioService;
       @GetMapping
     public ResponseEntity<List<Notificaciones>> listarNotificaciones() {
         return ResponseEntity.ok(notificacionesService.findAll());
@@ -41,6 +45,18 @@ public class NotificacionesController {
             throw new ResourceNotFoundException("Objeto con id : " + id);
         }
     }
+
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<List<Notificaciones>> buscarNotificacionesByIdUsuario(@PathVariable int id) {
+        try {
+
+            List<Notificaciones> notificaciones = notificacionesService.findByUsuario(usuarioService.findById(id));
+            return ResponseEntity.ok(notificaciones);
+        } catch (NoSuchElementException e) {
+            throw new ResourceNotFoundException("Objeto con id : " + id);
+        }
+    }
+
      @PostMapping
     public ResponseEntity<Notificaciones> guardarNotificaciones(@RequestBody Notificaciones notificaciones) {
         Notificaciones nuevoNotificaciones = notificacionesService.saveNotificaciones(notificaciones);

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/service/AmistadesService.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1719720645171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719720652765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,9 @@\n         return amistades;\r\n     }\r\n \r\n     public List<Amistades> findByUsuario(Usuario byId) {\r\n-        \r\n \r\n+        ream.deleteById(id);\r\n+\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1719720661030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n         amistades.setAmistadID(ultimoId());\r\n         return amistades;\r\n     }\r\n \r\n-    public List<Amistades> findByUsuario(Usuario byId) {\r\n+    public List<Amistades> findByUsuario(Usuario usuario) {\r\n \r\n         ream.findByUsuario(id);\r\n \r\n     }\r\n"
+                }
+            ],
+            "date": 1719720645171,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.service;\r\n\r\nimport java.util.List;\r\n\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.skillswap.skillswap_core.entity.Amistades;\r\nimport com.skillswap.skillswap_core.entity.Usuario;\r\nimport com.skillswap.skillswap_core.repository.IAmistadesRepository;\r\n\r\nimport lombok.AllArgsConstructor;\r\n\r\n@Service\r\n@AllArgsConstructor\r\npublic class AmistadesService {\r\n    private final IAmistadesRepository ream;\r\n\r\n    public int ultimoId(){\r\n        List<Amistades> lista = ream.findAll();\r\n        if (lista.size() == 0 ) {\r\n            return 1;\r\n        }\r\n        return lista.get(lista.size()-1).getAmistadID()+1 ;\r\n    }\r\n\r\n    public List<Amistades> findAll(){\r\n        return ream.findAll();\r\n    }\r\n    public Amistades findById(int id){\r\n        return  ream.findById(id).orElseThrow();\r\n    }\r\n\r\n    public Amistades saveAmistades(Amistades amistades) {\r\n        if (amistades.getAmistadID() == null ){\r\n            amistades.setAmistadID(ultimoId());\r\n        }\r\n        return ream.save(amistades);\r\n    }\r\n    \r\n    public void delteAmistadesById(Integer id) {\r\n        ream.deleteById(id);\r\n    }\r\n\r\n    public Amistades nullAmistades() {\r\n        Amistades amistades = new Amistades();\r\n        amistades.setAmistadID(null);\r\n        return amistades;\r\n    }\r\n    public Amistades newAmistades() {\r\n        Amistades amistades = new Amistades();\r\n        amistades.setAmistadID(ultimoId());\r\n        return amistades;\r\n    }\r\n\r\n    public List<Amistades> findByUsuario(Usuario byId) {\r\n        // TODO Auto-generated method stub\r\n        throw new UnsupportedOperationException(\"Unimplemented method 'findByUsuario'\");\r\n    }\r\n}\r\n"
+        }
+    ]
+}

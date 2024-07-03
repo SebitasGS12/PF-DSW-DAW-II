@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/controller/NotificacionesController.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1719719003586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719719009459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n         }\r\n     }\r\n \r\n     @GetMapping(\"/usuario/{id}\")\r\n-    public ResponseEntity<Perfil> buscarPerfilByIdUsuario(@PathVariable int id) {\r\n+    public ResponseEntity<Perfil> bbuscarNotificacionesByIdUsuario(@PathVariable int id) {\r\n         try {\r\n \r\n             Perfil perfil = perfilService.findByUsuario(usuarioService.findById(id));\r\n             return ResponseEntity.ok(perfil);\r\n"
+                },
+                {
+                    "date": 1719719015478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n         }\r\n     }\r\n \r\n     @GetMapping(\"/usuario/{id}\")\r\n-    public ResponseEntity<Perfil> buscarNotificacionesByIdUsuario(@PathVariable int id) {\r\n+    public ResponseEntity<Notificaciones> buscarNotificacionesByIdUsuario(@PathVariable int id) {\r\n         try {\r\n \r\n             Perfil perfil = perfilService.findByUsuario(usuarioService.findById(id));\r\n             return ResponseEntity.ok(perfil);\r\n"
+                }
+            ],
+            "date": 1719719003586,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.controller;\r\n\r\nimport java.util.List;\r\nimport java.util.NoSuchElementException;\r\n\r\nimport org.springframework.http.HttpStatus;\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.web.bind.annotation.CrossOrigin;\r\nimport org.springframework.web.bind.annotation.DeleteMapping;\r\nimport org.springframework.web.bind.annotation.GetMapping;\r\nimport org.springframework.web.bind.annotation.PathVariable;\r\nimport org.springframework.web.bind.annotation.PostMapping;\r\nimport org.springframework.web.bind.annotation.PutMapping;\r\nimport org.springframework.web.bind.annotation.RequestBody;\r\nimport org.springframework.web.bind.annotation.RequestMapping;\r\nimport org.springframework.web.bind.annotation.RestController;\r\n\r\nimport com.skillswap.skillswap_core.constants.Estandares;\r\nimport com.skillswap.skillswap_core.entity.Notificaciones;\r\nimport com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;\r\nimport com.skillswap.skillswap_core.service.NotificacionesService;\r\n\r\nimport lombok.RequiredArgsConstructor;\r\n\r\n@RestController\r\n@RequestMapping(Estandares.API + \"Notificaciones\")\r\n@RequiredArgsConstructor\r\n@CrossOrigin(Estandares.CROSS)\r\npublic class NotificacionesController {\r\n     private final NotificacionesService notificacionesService;\r\n      @GetMapping\r\n    public ResponseEntity<List<Notificaciones>> listarNotificaciones() {\r\n        return ResponseEntity.ok(notificacionesService.findAll());\r\n    }\r\n     @GetMapping(\"/{id}\")\r\n    public ResponseEntity<Notificaciones> buscarNotificaciones(@PathVariable int id) {\r\n        try {\r\n            Notificaciones notificaciones = notificacionesService.findById(id);\r\n            return ResponseEntity.ok(notificaciones);\r\n        } catch (NoSuchElementException e) {\r\n            throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n        }\r\n    }\r\n\r\n\r\n    \r\n     @PostMapping\r\n    public ResponseEntity<Notificaciones> guardarNotificaciones(@RequestBody Notificaciones notificaciones) {\r\n        Notificaciones nuevoNotificaciones = notificacionesService.saveNotificaciones(notificaciones);\r\n        return new ResponseEntity<>(nuevoNotificaciones, HttpStatus.CREATED);\r\n    }\r\n    \r\n    @PutMapping(\"/{id}\")\r\n    public ResponseEntity<Notificaciones> actualizarNotificaciones(@PathVariable int id, @RequestBody Notificaciones newNotificaciones) {\r\n        validarExistencia(id);\r\n        newNotificaciones.setNotificacionesId(id);\r\n        Notificaciones updatedNotificaciones = notificacionesService.saveNotificaciones(newNotificaciones);\r\n        return ResponseEntity.ok(updatedNotificaciones);\r\n    }\r\n    @DeleteMapping(\"/{id}\")\r\n    public ResponseEntity<String> eliminarNotificaciones(@PathVariable int id) {\r\n        validarExistencia(id);\r\n        notificacionesService.delteNotificacionesById(id);\r\n        String msg = \"Notificacion Eliminada : \" + id;\r\n        return ResponseEntity.ok(msg);\r\n    }\r\n\r\n    private void validarExistencia(int id) {\r\n        try {\r\n            notificacionesService.findById(id);\r\n        } catch (NoSuchElementException e) {\r\n            throw new ResourceNotFoundException(\"Objeto con id : \" + id);\r\n        }\r\n    }\r\n}"
+        }
+    ]
+}

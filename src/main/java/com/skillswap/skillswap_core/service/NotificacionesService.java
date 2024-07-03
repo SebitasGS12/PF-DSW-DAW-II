@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.skillswap.skillswap_core.entity.Notificaciones;
+import com.skillswap.skillswap_core.entity.Usuario;
 import com.skillswap.skillswap_core.repository.INotificacionesRepository;
 
 import lombok.AllArgsConstructor;
@@ -44,8 +45,12 @@ public class NotificacionesService {
         return notificaciones;
     }
     public Notificaciones newNotificaciones() {
-        Notificaciones notificaciones = new Notificaciones();
+        Notificaciones notificaciones =  new Notificaciones();
         notificaciones.setNotificacionesId(ultimoId());
         return notificaciones;
+    }
+
+    public List<Notificaciones> findByUsuario(Usuario usuario) {
+        return renot.findByUsuario(usuario);
     }
 }

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/repository/INotificacionesRepository.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1719719139939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719719146083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n import com.skillswap.skillswap_core.entity.Notificaciones;\r\n \r\n @Repository\r\n public interface INotificacionesRepository extends JpaRepository<Notificaciones, Integer>{\r\n-    private Notificaciones findBy\r\n+    private Notificaciones findByUsuario()\r\n }\r\n"
+                },
+                {
+                    "date": 1719719153513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n import com.skillswap.skillswap_core.entity.Notificaciones;\r\n \r\n @Repository\r\n public interface INotificacionesRepository extends JpaRepository<Notificaciones, Integer>{\r\n-    private Notificaciones findByUsuario(Usuario usuario)\r\n+    private Notificaciones findByUsuario(Usuario usuario);\r\n }\r\n"
+                }
+            ],
+            "date": 1719719139939,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.repository;\r\n\r\nimport org.springframework.data.jpa.repository.JpaRepository;\r\nimport org.springframework.stereotype.Repository;\r\n\r\nimport com.skillswap.skillswap_core.entity.Notificaciones;\r\n\r\n@Repository\r\npublic interface INotificacionesRepository extends JpaRepository<Notificaciones, Integer>{\r\n    private Notificaciones find\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/entity/Amistades.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1719720696581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719876723966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,7 +29,7 @@\n     private Usuario usuario;\r\n     \r\n     @ManyToOne\r\n     @JoinColumn(name = \"amigoId\")\r\n-    private Usuario obj_Amigo;\r\n+    private Usuario Amigo;\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1719876737098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,7 +29,7 @@\n     private Usuario usuario;\r\n     \r\n     @ManyToOne\r\n     @JoinColumn(name = \"amigoId\")\r\n-    private Usuario Amigo;\r\n+    private Usuario amigo;\r\n \r\n }\r\n"
+                }
+            ],
+            "date": 1719720696581,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.entity;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.sql.Date;\r\n\r\nimport jakarta.persistence.Entity;\r\nimport jakarta.persistence.GeneratedValue;\r\nimport jakarta.persistence.GenerationType;\r\nimport jakarta.persistence.Id;\r\nimport jakarta.persistence.JoinColumn;\r\nimport jakarta.persistence.ManyToOne;\r\nimport jakarta.persistence.Table;\r\nimport lombok.Data;\r\n\r\n\r\n@Entity\r\n@Table(name = \"amistades\")\r\n@Data\r\npublic class Amistades {\r\n    \r\n    @Id\r\n    @GeneratedValue(strategy =  GenerationType.IDENTITY)\r\n    private Integer amistadID;\r\n    private Date fechaAmistad;\r\n    private Boolean amistadAceptada;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"usuarioID\")\r\n    private Usuario usuario;\r\n    \r\n    @ManyToOne\r\n    @JoinColumn(name = \"amigoId\")\r\n    private Usuario obj_Amigo;\r\n\r\n}\r\n"
+        }
+    ]
+}

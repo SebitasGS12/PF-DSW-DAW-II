@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skillswap.skillswap_core.constants.Estandares;
 import com.skillswap.skillswap_core.entity.Usuario;
+import com.skillswap.skillswap_core.entity.Perfil;
 import com.skillswap.skillswap_core.exceptions.ResourceNotFoundException;
 import com.skillswap.skillswap_core.service.UsuarioService;
+import com.skillswap.skillswap_core.service.PerfilService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,6 +30,7 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin(Estandares.CROSS)
 public class UsuarioController {
     private final UsuarioService usuarioService;
+    private final PerfilService perfilService;
      @GetMapping
     public ResponseEntity<List<Usuario>> listarUsuario() {
         return ResponseEntity.ok(usuarioService.findAll());
@@ -41,9 +44,10 @@ public class UsuarioController {
             throw new ResourceNotFoundException("Objeto con id : " + id);
         }
     }
-     @PostMapping
+    @PostMapping
     public ResponseEntity<Usuario> guardarUsuario(@RequestBody Usuario usuario) {
         Usuario nuevoUsuario = usuarioService.saveUsuario(usuario);
+
         return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
     }
     

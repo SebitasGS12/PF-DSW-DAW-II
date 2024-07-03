@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/main/java/com/skillswap/skillswap_core/repository/IAmistadesRepository.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1719720665299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719720671933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+package com.skillswap.skillswap_core.repository;\r\n+\r\n+import org.springframework.data.jpa.repository.JpaRepository;\r\n+import org.springframework.stereotype.Repository;\r\n+\r\n+import com.skillswap.skillswap_core.entity.Amistades;\r\n+import com.skillswap.skillswap_core.entity.Usuario;\r\n+\r\n+@Repository\r\n+public interface IAmistadesRepository extends JpaRepository<Amistades, Integer>{\r\n+\r\n+    List<Amistada findByUsuario(Usuario usuario);\r\n+\r\n+}\r\n"
+                },
+                {
+                    "date": 1719720677051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,21 +8,7 @@\n \r\n @Repository\r\n public interface IAmistadesRepository extends JpaRepository<Amistades, Integer>{\r\n \r\n-    List<Amistada findByUsuario(Usuario usuario);\r\n+    List<Amistad> findByUsuario(Usuario usuario);\r\n \r\n }\r\n-package com.skillswap.skillswap_core.repository;\r\n-\r\n-import org.springframework.data.jpa.repository.JpaRepository;\r\n-import org.springframework.stereotype.Repository;\r\n-\r\n-import com.skillswap.skillswap_core.entity.Amistades;\r\n-import com.skillswap.skillswap_core.entity.Usuario;\r\n-\r\n-@Repository\r\n-public interface IAmistadesRepository extends JpaRepository<Amistades, Integer>{\r\n-\r\n-    void findByUsuario(Usuario usuario);\r\n-\r\n-}\r\n"
+                },
+                {
+                    "date": 1719876701951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,7 @@\n @Repository\r\n public interface IAmistadesRepository extends JpaRepository<Amistades, Integer>{\r\n \r\n     List<Amistades> findByUsuario(Usuario usuario);\r\n+    List<Amistades> findByUsuario(Usuario usuario);\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1719876708627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n @Repository\r\n public interface IAmistadesRepository extends JpaRepository<Amistades, Integer>{\r\n \r\n     List<Amistades> findByUsuario(Usuario usuario);\r\n-    List<Amistades> findByUsuario(Usuario usuario);\r\n+    Amistades findByUsuario(Usuario usuario);\r\n \r\n }\r\n"
+                }
+            ],
+            "date": 1719720665299,
+            "name": "Commit-0",
+            "content": "package com.skillswap.skillswap_core.repository;\r\n\r\nimport org.springframework.data.jpa.repository.JpaRepository;\r\nimport org.springframework.stereotype.Repository;\r\n\r\nimport com.skillswap.skillswap_core.entity.Amistades;\r\nimport com.skillswap.skillswap_core.entity.Usuario;\r\n\r\n@Repository\r\npublic interface IAmistadesRepository extends JpaRepository<Amistades, Integer>{\r\n\r\n    void findByUsuario(Usuario usuario);\r\n\r\n}\r\n"
+        }
+    ]
+}
